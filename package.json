@@ -1,0 +1,73 @@
+{
+  "name": "kviewui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:components:less": "cd packages/kviewui/common/css && lessc bg-gradient-t.less > ../../styles/kviewui/bg-gradient-t.css && lessc bg-gradient-tr.less > ../../styles/kviewui/bg-gradient-tr.css && lessc bg-gradient-r.less > ../../styles/kviewui/bg-gradient-r.css && lessc bg-gradient-br.less > ../../styles/kviewui/bg-gradient-br.css && lessc bg-gradient-b.less > ../../styles/kviewui/bg-gradient-b.css && lessc bg-gradient-bl.less > ../../styles/kviewui/bg-gradient-bl.css && lessc bg-gradient-l.less > ../../styles/kviewui/bg-gradient-l.css && lessc bg-gradient-tl.less > ../../styles/kviewui/bg-gradient-tl.css",
+    "generate:components:css": "cd packages/kviewui/scripts && gulp less && node --max_old_space_size=4096 appendFile.js",
+    "build:utils": "cd packages/kviewui-utils && tsup --config ./tsup.config.ts",
+    "build:theme": "cd packages/kviewui-theme && tsup --config ./tsup.config.ts",
+    "generate:animate:css": "cd packages/kviewui-animate/scripts && gulp less && node --max_old_space_size=4096 appendFile.js",
+    "build:animate:ts": "cd packages/kviewui-animate && tsup --config ./tsup.config.ts",
+    "build:animate": "npm run generate:animate:css && npm run build:animate:ts",
+    "build:use": "cd packages/kviewui-use && tsup --config ./tsup.config.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.20.5",
+    "@dcloudio/types": "^3.2.11",
+    "@fullhuman/postcss-purgecss": "^5.0.0",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^23.0.5",
+    "@rollup/plugin-image": "^3.0.1",
+    "@rollup/plugin-json": "^5.0.2",
+    "@rollup/plugin-typescript": "^10.0.1",
+    "@types/color": "^3.0.3",
+    "@types/node": "^18.11.18",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "chalk": "^4.1.2",
+    "color": "^4.2.3",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-less": "^5.0.0",
+    "less": "^4.1.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-css": "^1.0.10",
+    "rollup-plugin-dts": "^5.0.0",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-image": "^1.0.2",
+    "rollup-plugin-less": "^1.1.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-scss": "^4.0.0",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "rollup-plugin-vue": "^6.0.0",
+    "sass": "^1.57.1",
+    "shelljs": "^0.8.5",
+    "tsup": "^6.5.0",
+    "unplugin-vue-components": "^0.22.12",
+    "unplugin-vue-define-options": "^1.1.1",
+    "vite-plugin-dts": "^1.6.5"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "dependencies": {
+    "@kviewui/animate": "workspace:^1.0.0",
+    "@kviewui/theme": "workspace:^1.0.0",
+    "@kviewui/types": "workspace:1.0.0",
+    "@kviewui/utils": "workspace:1.0.0",
+    "csstype": "^3.1.1",
+    "pinia": "^2.0.30",
+    "vue": "^3.2.47",
+    "weex-bindingx": "^0.0.49"
+  },
+  "private": "true",
+  "packageManager": "pnpm@7.27.0",
+  "workspaces": [
+    "packages/*",
+    "docs"
+  ]
+}

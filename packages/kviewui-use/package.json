@@ -1,0 +1,21 @@
+{
+    "name": "@kviewui/use",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/index.js",
+    "module": "dist/esm/index.js",
+    "typings": "dist/index.d.ts",
+    "files": [
+      "dist",
+      "README.md",
+      "LICENSE"
+    ],
+    "keywords": [
+      "kviewui",
+      "@kviewui/use"
+    ],
+    "author": "kviewui@163.com",
+    "homepage": "https://cn.kviewui.com",
+    "license": "MIT"
+  }
+  

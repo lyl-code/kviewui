@@ -1,0 +1,31 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@arco-design/web-vue": "^2.43.1",
+    "@iconify-json/carbon": "^1.1.15",
+    "@iconify-json/logos": "^1.1.23",
+    "@iconify-json/mdi": "^1.1.47",
+    "@iconify-json/ph": "^1.1.4",
+    "@iconify-json/ri": "^1.1.5",
+    "@iconify-json/twemoji": "^1.1.11",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "unocss": "^0.49.7",
+    "unplugin-auto-import": "^0.14.3",
+    "unplugin-icons": "^0.15.3",
+    "unplugin-vue-components": "^0.24.0",
+    "vitepress": "1.0.0-alpha.46",
+    "vue": "^3.2.47"
+  }
+}

@@ -1,0 +1,42 @@
+.table-of-contents ul {
+    list-style: none !important;
+}
+
+::-webkit-scrollbar {
+    width: 4px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: #F5F5F5 !important;
+
+    html.dark & {
+        background: #272E3B !important;
+    }
+}
+
+::-webkit-scrollbar-thumb {
+    width: 1px !important;
+    background: #7DE4B6 !important;
+    border-radius: 100px !important;
+
+    html.dark & {
+        background: rgba(34, 197, 94, .5) !important;
+    }
+}
+
+::selection {
+    background: rgba(0, 188, 121, 0.5);
+}
+
+.VPSidebarItem {
+    margin: 10px 0;
+    padding: 5px 0px 5px 20px;
+    border-radius: 20px;
+    & .has-active {
+        background-color: rgba(176, 242, 210, .4) !important;
+        // padding: 5px 0px 5px 0px;
+    }
+    html.dark & .has-active {
+        background-color: rgba(0, 77, 60, .4) !important;
+    }
+}

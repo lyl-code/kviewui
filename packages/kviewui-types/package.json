@@ -1,0 +1,22 @@
+{
+  "name": "@kviewui/types",
+  "version": "1.0.0",
+  "description": "KviewUI组件库类型包",
+  "typings": "index.d.ts",
+  "keywords": [
+    "kviewui",
+    "ts"
+  ],
+  "files": [
+    "components",
+    "index.d.ts",
+    "README.md"
+  ],
+  "author": "kviewui@163.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kviewui/kviewui"
+  },
+  "homepage": "https://cn.kviewui.com"
+}

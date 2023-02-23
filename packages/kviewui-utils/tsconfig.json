@@ -1,0 +1,17 @@
+{
+    "extends": "../../tsconfig",
+    "compilerOptions": {
+        "outDir": "dist",
+        "types": [
+            "@dcloudio/types",
+            "@types/node",
+            "@kviewui/types"
+        ]
+    },
+    "include": [
+        "src/**/*",
+    ],
+    "exclude": [
+        "./dist"
+    ]
+}
