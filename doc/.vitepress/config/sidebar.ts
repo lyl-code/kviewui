@@ -109,7 +109,7 @@ const getComponentSidebar = () => {
         {
             text: '布局组件',
             items: [
-                { text: 'Devider 分割线', link: '/component/divider' },
+                { text: 'Divider 分割线', link: '/component/divider' },
                 { text: 'Grid 宫格', link: '/component/grid' },
                 { text: 'Layout 布局', link: '/component/layout' },
                 { text: 'Space 间隔', link: '/component/space' },

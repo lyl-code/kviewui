@@ -20,6 +20,9 @@ import GridItem from './src/grid-item/index.vue';
 import View from './src/view/index.vue';
 import Divider from './src/divider/index.vue';
 import Sticky from './src/sticky/index.vue';
+import Collapse from './src/collapse/index.vue';
+import CollapseItem from './src/collapse-item/index.vue';
+import Section from './src/section/index.vue';
 
 
 import { theme } from "@kviewui/theme";
@@ -29,7 +32,8 @@ function install(app: App) {
     const packages = [
         Button, Page, Image, Text, Container, Switch, CellGroup, 
         Cell, Icons, Space, ConfigProvider, Animate, Tag, Badge,
-        Row, Col, Grid, GridItem, View, Divider, Sticky
+        Row, Col, Grid, GridItem, View, Divider, Sticky, Collapse,
+        CollapseItem, Section
     ];
 
     packages.forEach((item: any) => {
@@ -74,6 +78,9 @@ export {
     View as KuiView,
     Divider as KuiDivider,
     Sticky as KuiSticky,
+    Collapse as KuiCollapse,
+    CollapseItem as KuiCollapseItem,
+    Section as KuiSection,
     theme,
     app,
     version

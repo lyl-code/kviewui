@@ -1,6 +1,6 @@
 /**
 * kviewui组件库内置样式库，由工具自动生成，请不要手动修改！！！
-* 2023-02-17 21:28
+* 2023-02-24 13:41
 * @author kviewui@163.com
 * @version 1.0.0
 * @see {@link git+https://github.com/kviewui/kviewui}
@@ -15793,6 +15793,294 @@ view {
     -webkit-transform: none !important;
     /* #endif */
             transform: none !important;
+  }
+  /* 过渡属性 */
+  /* #ifndef APP-NVUE */
+  .kui-transition-none {
+    -webkit-transition-property: none !important;
+    -moz-transition-property: none !important;
+    -o-transition-property: none !important;
+    transition-property: none !important;
+  }
+  /* #endif */
+  .kui-transition-width {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-property: width !important;
+    -moz-transition-property: width !important;
+    -o-transition-property: width !important;
+    -webkit-transition-duration: 150ms !important;
+    -moz-transition-duration: 150ms !important;
+    -o-transition-duration: 150ms !important;
+    /* #endif */
+    transition-property: width !important;
+    transition-duration: 150ms !important;
+  }
+  .kui-transition-height {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-property: height !important;
+    -moz-transition-property: height !important;
+    -o-transition-property: height !important;
+    -webkit-transition-duration: 150ms !important;
+    -moz-transition-duration: 150ms !important;
+    -o-transition-duration: 150ms !important;
+    /* #endif */
+    transition-property: height !important;
+    transition-duration: 150ms !important;
+  }
+  .kui-transition-top {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-property: top !important;
+    -moz-transition-property: top !important;
+    -o-transition-property: top !important;
+    -webkit-transition-duration: 150ms !important;
+    -moz-transition-duration: 150ms !important;
+    -o-transition-duration: 150ms !important;
+    /* #endif */
+    transition-property: top !important;
+    transition-duration: 150ms !important;
+  }
+  .kui-transition-bottom {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-property: bottom !important;
+    -moz-transition-property: bottom !important;
+    -o-transition-property: bottom !important;
+    -webkit-transition-duration: 150ms !important;
+    -moz-transition-duration: 150ms !important;
+    -o-transition-duration: 150ms !important;
+    /* #endif */
+    transition-property: bottom !important;
+    transition-duration: 150ms !important;
+  }
+  .kui-transition-left {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-property: left !important;
+    -moz-transition-property: left !important;
+    -o-transition-property: left !important;
+    -webkit-transition-duration: 150ms !important;
+    -moz-transition-duration: 150ms !important;
+    -o-transition-duration: 150ms !important;
+    /* #endif */
+    transition-property: left !important;
+    transition-duration: 150ms !important;
+  }
+  .kui-transition-right {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-property: right !important;
+    -moz-transition-property: right !important;
+    -o-transition-property: right !important;
+    -webkit-transition-duration: 150ms !important;
+    -moz-transition-duration: 150ms !important;
+    -o-transition-duration: 150ms !important;
+    /* #endif */
+    transition-property: right !important;
+    transition-duration: 150ms !important;
+  }
+  .kui-transition-background-color {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-property: background-color !important;
+    -moz-transition-property: background-color !important;
+    -o-transition-property: background-color !important;
+    -webkit-transition-duration: 150ms !important;
+    -moz-transition-duration: 150ms !important;
+    -o-transition-duration: 150ms !important;
+    /* #endif */
+    transition-property: background-color !important;
+    transition-duration: 150ms !important;
+  }
+  .kui-transition-opacity {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-property: opacity !important;
+    -moz-transition-property: opacity !important;
+    -o-transition-property: opacity !important;
+    -webkit-transition-duration: 150ms !important;
+    -moz-transition-duration: 150ms !important;
+    -o-transition-duration: 150ms !important;
+    /* #endif */
+    transition-property: opacity !important;
+    transition-duration: 150ms !important;
+  }
+  .kui-transition-transform {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-property: transform !important;
+    -moz-transition-property: transform !important;
+    -o-transition-property: transform !important;
+    -webkit-transition-duration: 150ms !important;
+    -moz-transition-duration: 150ms !important;
+    -o-transition-duration: 150ms !important;
+    /* #endif */
+    transition-property: transform !important;
+    transition-duration: 150ms !important;
+  }
+  /* 过渡持续时间 */
+  .kui-duration-75 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-duration: 75ms !important;
+    -moz-transition-duration: 75ms !important;
+    -o-transition-duration: 75ms !important;
+    /* #endif */
+    transition-duration: 75ms !important;
+  }
+  .kui-duration-100 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-duration: 100ms !important;
+    -moz-transition-duration: 100ms !important;
+    -o-transition-duration: 100ms !important;
+    /* #endif */
+    transition-duration: 100ms !important;
+  }
+  .kui-duration-150 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-duration: 150ms !important;
+    -moz-transition-duration: 150ms !important;
+    -o-transition-duration: 150ms !important;
+    /* #endif */
+    transition-duration: 150ms !important;
+  }
+  .kui-duration-200 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-duration: 200ms !important;
+    -moz-transition-duration: 200ms !important;
+    -o-transition-duration: 200ms !important;
+    /* #endif */
+    transition-duration: 200ms !important;
+  }
+  .kui-duration-300 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-duration: 300ms !important;
+    -moz-transition-duration: 300ms !important;
+    -o-transition-duration: 300ms !important;
+    /* #endif */
+    transition-duration: 300ms !important;
+  }
+  .kui-duration-500 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-duration: 500ms !important;
+    -moz-transition-duration: 500ms !important;
+    -o-transition-duration: 500ms !important;
+    /* #endif */
+    transition-duration: 500ms !important;
+  }
+  .kui-duration-700 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-duration: 700ms !important;
+    -moz-transition-duration: 700ms !important;
+    -o-transition-duration: 700ms !important;
+    /* #endif */
+    transition-duration: 700ms !important;
+  }
+  .kui-duration-1000 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-duration: 1000ms !important;
+    -moz-transition-duration: 1000ms !important;
+    -o-transition-duration: 1000ms !important;
+    /* #endif */
+    transition-duration: 1000ms !important;
+  }
+  /* 过渡计时函数 */
+  .kui-ease {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-timing-function: ease !important;
+    -moz-transition-timing-function: ease !important;
+    -o-transition-timing-function: ease !important;
+    /* #endif */
+    transition-timing-function: ease !important;
+  }
+  .kui-ease-in {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-timing-function: ease-in !important;
+    -moz-transition-timing-function: ease-in !important;
+    -o-transition-timing-function: ease-in !important;
+    /* #endif */
+    transition-timing-function: ease-in !important;
+  }
+  .kui-ease-out {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-timing-function: ease-out !important;
+    -moz-transition-timing-function: ease-out !important;
+    -o-transition-timing-function: ease-out !important;
+    /* #endif */
+    transition-timing-function: ease-out !important;
+  }
+  .kui-ease-in-out {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-timing-function: ease-in-out !important;
+    -moz-transition-timing-function: ease-in-out !important;
+    -o-transition-timing-function: ease-in-out !important;
+    /* #endif */
+    transition-timing-function: ease-in-out !important;
+  }
+  .kui-linear {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-timing-function: linear !important;
+    -moz-transition-timing-function: linear !important;
+    -o-transition-timing-function: linear !important;
+    /* #endif */
+    transition-timing-function: linear !important;
+  }
+  /* 过渡延迟 */
+  .kui-delay-75 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-delay: 75ms !important;
+    -moz-transition-delay: 75ms !important;
+    -o-transition-delay: 75ms !important;
+    /* #endif */
+    transition-delay: 75ms !important;
+  }
+  .kui-delay-100 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-delay: 100ms !important;
+    -moz-transition-delay: 100ms !important;
+    -o-transition-delay: 100ms !important;
+    /* #endif */
+    transition-delay: 100ms !important;
+  }
+  .kui-delay-150 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-delay: 150ms !important;
+    -moz-transition-delay: 150ms !important;
+    -o-transition-delay: 150ms !important;
+    /* #endif */
+    transition-delay: 150ms !important;
+  }
+  .kui-delay-200 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-delay: 200ms !important;
+    -moz-transition-delay: 200ms !important;
+    -o-transition-delay: 200ms !important;
+    /* #endif */
+    transition-delay: 200ms !important;
+  }
+  .kui-delay-300 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-delay: 300ms !important;
+    -moz-transition-delay: 300ms !important;
+    -o-transition-delay: 300ms !important;
+    /* #endif */
+    transition-delay: 300ms !important;
+  }
+  .kui-delay-500 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-delay: 500ms !important;
+    -moz-transition-delay: 500ms !important;
+    -o-transition-delay: 500ms !important;
+    /* #endif */
+    transition-delay: 500ms !important;
+  }
+  .kui-delay-700 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-delay: 700ms !important;
+    -moz-transition-delay: 700ms !important;
+    -o-transition-delay: 700ms !important;
+    /* #endif */
+    transition-delay: 700ms !important;
+  }
+  .kui-delay-1000 {
+    /* #ifndef APP-NVUE */
+    -webkit-transition-delay: 1000ms !important;
+    -moz-transition-delay: 1000ms !important;
+    -o-transition-delay: 1000ms !important;
+    /* #endif */
+    transition-delay: 1000ms !important;
   }
   /* 变换原点 */
   .kui-origin-center {

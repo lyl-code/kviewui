@@ -15,9 +15,25 @@
 | <a-link status="success">animate-none</a-link> | <a-link>animate: none</a-link> | H5、小程序、app-vue
 | <a-link status="success">animate-spin</a-link> | <a-link>animation: spin 1s linear infinite</a-link> | H5、小程序、app-vue
 | <a-link status="success">animate-ping</a-link> | <a-link>animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite</a-link> | H5、小程序、app-vue
-| <a-link status="success">animate-pluse</a-link> | <a-link>animation: pluse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite</a-link> | H5、小程序、app-vue
+| <a-link status="success">animate-pulse</a-link> | <a-link>animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite</a-link> | H5、小程序、app-vue
 | <a-link status="success">animate-bounce</a-link> | <a-link>animation: bounce 1s infinite</a-link> | H5、小程序、app-vue
 | <a-link status="success">animate-flicker</a-link> | <a-link>animation: flicker 1s  infinite</a-link> | H5、小程序、app-vue
+| <a-link status="success">animate-heartbeat</a-link> | <a-link>animation: heartbeat 1s infinite</a-link> | H5、小程序、app-vue
+| <a-link status="success">animate-shake</a-link> | <a-link>animation: shake 0.6s</a-link> | H5、小程序、app-vue
+
+## 动画时间曲线
+| Class | Properties | 平台兼容性说明
+| --- | --- | ---
+| <a-link status="success">animate-tf-linear</a-link> | <a-link>animation-timing-function: linear</a-link> | H5、小程序、app-vue
+| <a-link status="success">animate-tf-ease</a-link> | <a-link>animation-timing-function: ease</a-link> | H5、小程序、app-vue
+| <a-link status="success">animate-tf-ease-in</a-link> | <a-link>animation-timing-function: ease-in</a-link> | H5、小程序、app-vue
+| <a-link status="success">animate-tf-ease-out</a-link> | <a-link>animation-timing-function: ease-out</a-link> | H5、小程序、app-vue
+| <a-link status="success">animate-tf-ease-in-out</a-link> | <a-link>animation-timing-function: ease-in-out</a-link> | H5、小程序、app-vue
+
+## 循环动画
+| Class | Properties | 平台兼容性说明
+| --- | --- | ---
+| <a-link status="success">animate-ic-loop</a-link> | <a-link>animation-iteration-count: infinite</a-link> | H5、小程序、app-vue
 
 ### @keyframes spin
 ```css
@@ -44,7 +60,7 @@
 }
 ```
 
-### @keyframes pluse
+### @keyframes pulse
 ```css
 @keyframes pulse {
 
@@ -89,6 +105,53 @@
 
     100% {
         opacity: 0;
+    }
+}
+```
+
+### @keyframes heartbeat
+```css
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+```
+
+### @keyframes shake
+```css
+@keyframes shake {
+    0%,
+    90%,
+    100% {
+        transform: translateX(0);
+    }
+    10% {
+        transform: translateX(-8px);
+    }
+    20% {
+        transform: translateX(7px);
+    }
+    30% {
+        transform: translateX(-6px);
+    }
+    40% {
+        transform: translateX(5px);
+    }
+    50% {
+        transform: translateX(-4px);
+    }
+    60% {
+        transform: translateX(3px);
+    }
+    70% {
+        transform: translateX(-2px);
+    }
+    80% {
+        transform: translateX(1px);
     }
 }
 ```

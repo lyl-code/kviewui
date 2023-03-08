@@ -24,7 +24,6 @@
       }"
       v-if="customHeader"
     >
-      <!-- <text v-if="title">{{ title }}</text> -->
       <kui-text v-if="title" :value="title" />
       <slot name="headerBar" v-else></slot>
     </view>

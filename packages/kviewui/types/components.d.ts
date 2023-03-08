@@ -20,7 +20,10 @@ declare module "@vue/runtime-core" {
         kGridItem: typeof import('../index').KuiGridItem,
         kView: typeof import('../index').KuiView,
         kDivider: typeof import('../index').KuiDivider,
-        kSticky: typeof import('../index').KuiSticky
+        kSticky: typeof import('../index').KuiSticky,
+        kCollapse: typeof import('../index').KuiCollapse,
+        kCollapseItem: typeof import('../index').KuiCollapseItem,
+        kSection: typeof import('../index').KuiSection
     }
 }
 
