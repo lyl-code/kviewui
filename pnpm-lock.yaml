@@ -134,6 +134,7 @@ importers:
       '@types/color': ^3.0.3
       '@types/node': ^18.11.18
       csstype: ^3.1.1
+      kviewui: ^1.0.0
     dependencies:
       '@kviewui/animate': link:../kviewui-animate
       '@kviewui/color-builder': 1.0.5
@@ -142,6 +143,7 @@ importers:
       '@kviewui/use': link:../kviewui-use
       '@kviewui/utils': link:../kviewui-utils
       csstype: 3.1.1
+      kviewui: 'link:'
     devDependencies:
       '@types/color': 3.0.3
       '@types/node': 18.13.0

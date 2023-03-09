@@ -6,6 +6,15 @@
 
 <TipsIntroduce />
 
+## 安装
+```ts
+// 仅仅H5环境支持
+import { KuiCollapse, KuiCollapseItem } from 'kviewui';
+// 或 跨端推荐
+import KuiCollapse from 'kviewui/src/collapse/index.vue';
+import KuiCollapseItem from 'kviewui/src/collapse-item/index.vue';
+```
+
 ## 基本用法
 
 <!-- <show-code com-type="collapse" com-show-type="base" /> -->
@@ -111,3 +120,14 @@
 | title | 折叠面板标题区
 | arrow-icon | 折叠面板右边箭头区
 | default | 折叠面板内容区
+
+## 平台兼容性说明
+| 运行平台 | 是否兼容
+| --- | ---
+| app-vue | ✅
+| app-nvue | ✅
+| H5 | ✅
+| 微信小程序 | ✅
+| 支付宝小程序 | 待测试
+| QQ小程序 | ✅
+| 字节小程序 | 待测试

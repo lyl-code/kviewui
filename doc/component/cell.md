@@ -6,6 +6,15 @@
 
 <TipsIntroduce />
 
+## 安装
+```ts
+// 仅仅H5环境支持
+import { KuiCell, KuiCellGroup } from 'kviewui';
+// 或 跨端推荐
+import KuiCell from 'kviewui/src/cell/index.vue';
+import KuiCellGroup from 'kviewui/src/cell-group/index.vue';
+```
+
 ## 基本用法
 
 可以通过 `title` 属性设置单元格标题，`sub-title` 属性设置副标题，`desc` 属性设置描述内容，`show-right-icon` 设置是否显示单元格右边箭头，`radius` 属性设置圆角大小
@@ -147,3 +156,14 @@
 | --- | --- 
 | title | 自定义`title`标题区域 
 | desc | 自定义`desc`描述区域 
+
+## 平台兼容性说明
+| 运行平台 | 是否兼容
+| --- | ---
+| app-vue | ✅
+| app-nvue | ✅
+| H5 | ✅
+| 微信小程序 | ✅
+| 支付宝小程序 | 待测试
+| QQ小程序 | ✅
+| 字节小程序 | 待测试

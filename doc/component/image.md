@@ -6,6 +6,14 @@
 
 <TipsIntroduce />
 
+## 安装
+```ts
+// 仅仅H5环境支持
+import { KuiImage } from 'kviewui';
+// 或 跨端推荐
+import KuiImage from 'kviewui/src/image/index.vue';
+```
+
 ## 基础用法
 
 基础用法与原生 img 标签一致，可以设置 src、width、height、alt 等原生属性。
@@ -111,3 +119,14 @@
 | click  | 点击图片时触发 | -- |
 | preview-image-success  | 图片预览成功后触发 | -- |
 | preview-image-fail  | 图片预览失败后触发 | -- |
+
+## 平台兼容性说明
+| 运行平台 | 是否兼容
+| --- | ---
+| app-vue | ✅
+| app-nvue | ✅
+| H5 | ✅
+| 微信小程序 | ✅
+| 支付宝小程序 | 待测试
+| QQ小程序 | ✅
+| 字节小程序 | 待测试

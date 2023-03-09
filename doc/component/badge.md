@@ -10,6 +10,14 @@
 以下代码演示中的 `kui-space` 为组件库的 <a href="/component/space">Space 间隔</a> 组件。
 :::
 
+## 安装
+```ts
+// 仅仅H5环境支持
+import { KuiBadge } from 'kviewui';
+// 或 跨端推荐
+import KuiBadge from 'kviewui/src/badge/index.vue';
+```
+
 ## 徽标类型
 
 徽标支持 `primary`、`info`、`warning`、`danger`、`success` 五种主题类型，默认为 ''。
@@ -154,3 +162,14 @@
 | 名称    | 说明         |
 |---------|--------------|
 | default | 	徽标包裹的子元素 |
+
+## 平台兼容性说明
+| 运行平台 | 是否兼容
+| --- | ---
+| app-vue | ✅
+| app-nvue | ✅
+| H5 | ✅
+| 微信小程序 | ✅
+| 支付宝小程序 | 待测试
+| QQ小程序 | ✅
+| 字节小程序 | 待测试

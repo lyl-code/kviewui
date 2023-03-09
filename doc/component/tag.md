@@ -10,6 +10,14 @@
 以下代码演示中的 `kui-space` 为组件库的 <a href="/components/space">Space 间隔</a> 组件。
 :::
 
+## 安装
+```ts
+// 仅仅H5环境支持
+import { KuiTag } from 'kviewui';
+// 或 跨端推荐
+import KuiTag from 'kviewui/src/tag/index.vue';
+```
+
 ## 标签类型
 
 标签支持 `primary`、`info`、`warning`、`danger`、`success` 五种主题类型，默认为 ''。
@@ -211,3 +219,14 @@
 | click-left-icon | 左图标点击事件 | name |
 | click-right-icon | 右图标点击事件 | name |
 | close    | 关闭事件 | name    |
+
+## 平台兼容性说明
+| 运行平台 | 是否兼容
+| --- | ---
+| app-vue | ✅
+| app-nvue | ✅
+| H5 | ✅
+| 微信小程序 | ✅
+| 支付宝小程序 | 待测试
+| QQ小程序 | ✅
+| 字节小程序 | 待测试

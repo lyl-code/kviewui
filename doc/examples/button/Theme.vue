@@ -11,6 +11,9 @@
         
     <kui-button type="danger" value="危险按钮" />
         
-    <kui-button type="danger" background-color="orange" text-color="black" value="自定义按钮" />
+    <kui-button type="danger" 
+        background-color="orange" 
+        text-color="black" 
+        value="自定义按钮" />
 </template>
   

@@ -6,6 +6,14 @@
 
 <TipsIntroduce />
 
+## 安装
+```ts
+// 仅仅H5环境支持
+import { KuiGrid } from 'kviewui';
+// 或 跨端推荐
+import KuiGrid from 'kviewui/src/icons/index.vue';
+```
+
 ## 基本用法
 
 通过 `kui-grid` 组件将宫格包裹，`kui-grid-item` 组件设置每个区块的内容，通过 `icon` 属性可以设置每个区块的图标，`text` 属性可以设置每个区块的底部文字。
@@ -187,4 +195,16 @@
 | touchstart                 | 触摸格子时触发          | event: Event          |
 | touchend                 | 触摸格子结束时触发          | event: Event          |
 | touchmove                 | 手指在格子上移动时触发          | event: Event          |
+
+## 平台兼容性说明
+| 运行平台 | 是否兼容
+| --- | ---
+| app-vue | ✅
+| app-nvue | ✅
+| H5 | ✅
+| 微信小程序 | ✅
+| 支付宝小程序 | 待测试
+| QQ小程序 | ✅
+| 字节小程序 | 待测试
+
 

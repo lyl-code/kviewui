@@ -6,6 +6,14 @@ Sticky组件基于CSS中的 `position: sticky` 属性实现的效果，当组件
 
 <TipsIntroduce />
 
+## 安装
+```ts
+// 仅仅H5环境支持
+import { KuiSticky } from 'kviewui';
+// 或 跨端推荐
+import KuiSticky from 'kviewui/src/sticky/index.vue';
+```
+
 ## 基本用法
 
 <!-- <show-code com-type="sticky" com-show-type="base" /> -->
@@ -58,3 +66,14 @@ Sticky组件基于CSS中的 `position: sticky` 属性实现的效果，当组件
 | container-id         | 容器的 `id` 值, 在非H5环境下需要指定               | Element | -                |
 | z-index         | 吸附时的层级               | Number | `2000`               |
 | proxy         | 父组件实例               | Object | -                |
+
+## 平台兼容性说明
+| 运行平台 | 是否兼容
+| --- | ---
+| app-vue | ✅
+| app-nvue | ❌
+| H5 | ✅
+| 微信小程序 | ✅
+| 支付宝小程序 | 待测试
+| QQ小程序 | ✅
+| 字节小程序 | 待测试

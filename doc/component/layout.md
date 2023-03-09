@@ -6,6 +6,15 @@ Layout 提供了 `kui-row` 和 `kui-col` 两个辅助布局的组件，帮助您
 
 <TipsIntroduce />
 
+## 安装
+```ts
+// 仅仅H5环境支持
+import { KuiRow, KuiCol } from 'kviewui';
+// 或 跨端推荐
+import KuiRow from 'kviewui/src/row/index.vue';
+import KuiCol from 'kviewui/src/col/index.vue';
+```
+
 ## 基本用法
 
 `kui-row` 组件把一行平均分为 `24` 份 栅格，`kui-col` 组件提供 `span` 属性可以设置这一列所占的栅格数，`offset` 属性设置这一列偏移的栅格数。
@@ -63,3 +72,15 @@ Layout 提供了 `kui-row` 和 `kui-col` 两个辅助布局的组件，帮助您
 | 字段 | 说明
 |----- | -----
 | default | 列显示内容
+
+
+## 平台兼容性说明
+| 运行平台 | 是否兼容
+| --- | ---
+| app-vue | ✅
+| app-nvue | ✅
+| H5 | ✅
+| 微信小程序 | ✅
+| 支付宝小程序 | 待测试
+| QQ小程序 | ✅
+| 字节小程序 | 待测试

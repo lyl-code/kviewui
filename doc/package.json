@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vitepress dev",
+    "docs:dev": "vitepress --port 5174 dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
   },

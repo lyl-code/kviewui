@@ -6,6 +6,14 @@
 
 <TipsIntroduce />
 
+## 安装
+```ts
+// 仅仅H5环境支持
+import { KuiDivider } from 'kviewui';
+// 或 跨端推荐
+import KuiDivider from 'kviewui/src/divider/index.vue';
+```
+
 ## 基本用法
 
 默认渲染一条水平分割线。
@@ -115,4 +123,15 @@
 | 名称 | 说明           | 
 |--------|----------------|
 | default  | 内容 | 
+
+## 平台兼容性说明
+| 运行平台 | 是否兼容
+| --- | ---
+| app-vue | ✅
+| app-nvue | ✅
+| H5 | ✅
+| 微信小程序 | ✅
+| 支付宝小程序 | 待测试
+| QQ小程序 | ✅
+| 字节小程序 | 待测试
     

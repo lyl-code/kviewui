@@ -8,6 +8,14 @@
 
 <!-- ## 代码演示 -->
 
+## 安装
+```ts
+// 仅仅H5环境支持
+import { KuiButton } from 'kviewui';
+// 或 跨端推荐
+import KuiButton from 'kviewui/src/button/index.vue';
+```
+
 ## 主题色按钮
 
 按钮支持 `primary`、`info`、`warning`、`danger`、`success` 五种主题类型，默认为 ''。通过 `background-color` 属性可以设置按钮背景色，通过 `text-color` 属性可以设置按钮文字颜色。
@@ -204,3 +212,14 @@
 ### Events 特殊说明
 
 该组件支持uniapp按钮组件的 `getphonenumber` `getuserinfo` `error` `opensetting` `launchapp` 五种事件，具体组件事件支持可以参考 <a href="https://uniapp.dcloud.net.cn/component/button.html#open-type-%E6%9C%89%E6%95%88%E5%80%BC">uniapp 按钮组件</a>
+
+## 平台兼容性说明
+| 运行平台 | 是否兼容
+| --- | ---
+| app-vue | ✅
+| app-nvue | ✅
+| H5 | ✅
+| 微信小程序 | ✅
+| 支付宝小程序 | 待测试
+| QQ小程序 | ✅
+| 字节小程序 | 待测试
