@@ -24,7 +24,8 @@ declare module "@vue/runtime-core" {
         kCollapse: typeof import('../index').KuiCollapse,
         kCollapseItem: typeof import('../index').KuiCollapseItem,
         kSection: typeof import('../index').KuiSection,
-        kProgress: typeof import('../index').KuiProgress
+        kProgress: typeof import('../index').KuiProgress,
+        kSpin: typeof import('../index').KuiSpin
     }
 }
 
