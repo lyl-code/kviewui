@@ -54,3 +54,14 @@ import KuiSpin from 'kviewui/src/spin/index.vue';
 | height | 高度，默认单位`rpx` | Number | `80`
 | theme | 主题色，支持 [主题](/guide/token#主题色)和[颜色](/guide/palette)| String | -
 | theme-level | 主体色色阶，参考[颜色色阶](/guide/palette#颜色色阶)
+
+## 平台兼容性说明
+| 运行平台 | 是否兼容
+| --- | ---
+| app-vue | ✅
+| app-nvue | ❌
+| H5 | ✅
+| 微信小程序 | ✅
+| 支付宝小程序 | 待测试
+| QQ小程序 | ✅
+| 字节小程序 | 待测试
