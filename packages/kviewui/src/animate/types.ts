@@ -15,7 +15,7 @@ export const animateProps = {
      */
     name: {
         type: String as PropType<AnimateTypeEnum>,
-        default: ''
+        default: 'none'
     },
     /**
      * 是否循环执行

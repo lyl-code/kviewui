@@ -25,6 +25,8 @@ import CollapseItem from './src/collapse-item/index.vue';
 import Section from './src/section/index.vue';
 import Progress from './src/progress/index.vue';
 import Spin from './src/spin/index.vue';
+import Skeleton from './src/skeleton/index.vue';
+import Overlay from './src/overlay/index.vue';
 
 
 import { theme } from "@kviewui/theme";
@@ -35,7 +37,7 @@ function install(app: App) {
         Button, Page, Image, Text, Container, Switch, CellGroup, 
         Cell, Icons, Space, ConfigProvider, Animate, Tag, Badge,
         Row, Col, Grid, GridItem, View, Divider, Sticky, Collapse,
-        CollapseItem, Section, Progress, Spin
+        CollapseItem, Section, Progress, Spin, Skeleton, Overlay
     ];
 
     packages.forEach((item: any) => {
@@ -85,6 +87,8 @@ export {
     Section as KuiSection,
     Progress as KuiProgress,
     Spin as KuiSpin,
+    Skeleton as KuiSkeleton,
+    Overlay as KuiOverlay,
     theme,
     app,
     version

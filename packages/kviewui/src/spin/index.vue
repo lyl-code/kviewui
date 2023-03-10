@@ -1,8 +1,10 @@
 <template>
 	<view
 		:style="{
-			transform: `scale(${data.scale})`
+			transform: `scale(${data.scale})`,
+			...customStyle
 		}"
+		:class="[customClass]"
 	>
 		<view
 			class="square-turn"

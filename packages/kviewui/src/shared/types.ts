@@ -19,7 +19,7 @@ export type ShadowSizeEnum = 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '';
 export type ThemeEnum = 'red' | 'oranged' | 'orange' | 'gold' | 'yellow' | 'lime' | 'green' | 'brandgreen' | 'cyan' | 'blue' | 'deepblue' | 'purple' | 'pinkpurple' | 'magenta' | 'grey' | 'primary' | 'success' | 'danger' | 'warning' | 'link' | 'info';
 export type TypeEnum = 'primary' | 'info' | 'success' | 'warning' | 'danger';
 export type ShapeEnum = 'round' | 'square';
-export type AnimateTypeEnum = 'spin' | 'pulse' | 'bounce' | 'heartbeat' | 'shake';
+export type AnimateTypeEnum = 'spin' | 'pulse' | 'bounce' | 'heartbeat' | 'shake' | 'none';
 
 type ValidatorType<T> = (score: T) => boolean;
 

@@ -31,13 +31,23 @@ import KuiSpin from 'kviewui/src/spin/index.vue';
 
 组件提供了 `background-color` 属性可以设置自定义背景色，支持[主题](/guide/token#主题色)和[颜色](/guide/palette)
 
-<show-code com-type="spin" com-show-type="background-color" />
+<!-- <show-code com-type="spin" com-show-type="background-color" /> -->
+::: code-group
+
+<<< @/examples/spin/BackgroundColor.vue
+
+:::
 
 ## 自定义大小
 
 组件提供了 `size` 属性可以设置不同的大小。
 
-<show-code com-type="spin" com-show-type="size" />
+<!-- <show-code com-type="spin" com-show-type="size" /> -->
+::: code-group
+
+<<< @/examples/spin/Size.vue
+
+:::
 
 ## API
 
@@ -47,13 +57,12 @@ import KuiSpin from 'kviewui/src/spin/index.vue';
 |----- | ----- | ----- | ----- 
 | type | 动画类型，目前支持 `15` 种动画类型 | String | `circle-dot`
 | size | 动画大小，可选值为 `sm` `base` `lg` `xl` | String | `base`
-| background-color | 动画背景色 | String | -
+| background-color | 动画背景色，支持[主题](/guide/token#主题色)和[颜色](/guide/palette) | String | -
+| background-color-level | 背景色色阶，参考[颜色色阶](/guide/palette#颜色色阶)
 | speed`暂不支持` | 动画速度，可选值为 `sm` `base` `lg` `xl` | String | `base`
 | scale | 动画缩放系数，设置该属性时`size`属性失效 | Number | `0`
 | width | 宽度，默认单位`rpx` | Number | `80`
 | height | 高度，默认单位`rpx` | Number | `80`
-| theme | 主题色，支持 [主题](/guide/token#主题色)和[颜色](/guide/palette)| String | -
-| theme-level | 主体色色阶，参考[颜色色阶](/guide/palette#颜色色阶)
 
 ## 平台兼容性说明
 | 运行平台 | 是否兼容

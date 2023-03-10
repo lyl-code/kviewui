@@ -103,7 +103,8 @@ const getComponentSidebar = () => {
                 { text: 'Button 按钮', link: '/component/button' },
                 { text: 'Cell 单元格', link: '/component/cell' },
                 { text: 'Image 图片', link: '/component/image' },
-                { text: 'Icons 图标', link: '/component/icons' }
+                { text: 'Icons 图标', link: '/component/icons' },
+                { text: 'Overlay 遮罩', link: '/component/overlay' }
             ]
         },
         {
@@ -126,6 +127,11 @@ const getComponentSidebar = () => {
                 { text: 'Spin 加载动画', link: '/component/spin' },
                 { text: 'Skeleton 骨架屏', link: '/component/skeleton' },
                 { text: 'Tag 标签', link: '/component/tag' }
+            ]
+        },
+        {
+            text: '反馈组件',
+            items: [
             ]
         }
     ];
