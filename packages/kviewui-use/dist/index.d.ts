@@ -85,4 +85,11 @@ declare function useThrottle(fn: Function, interval: number, options?: {
     flush: (this: unknown, ...args: any[]) => Promise<unknown>;
 };
 
-export { useDebounce, useThrottle };
+/**
+ * 多个promise顺序执行队列
+ * @param {Array<() => Promise<any>>} tasks 待执行的promise任务数组
+ * @returns
+ */
+declare const useTaskReduce: (tasks: Array<() => Promise<any>>) => Promise<any>;
+
+export { useDebounce, useTaskReduce, useThrottle };

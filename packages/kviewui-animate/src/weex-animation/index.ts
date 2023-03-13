@@ -1,4 +1,5 @@
 import type { Ref } from 'vue';
+import { useTaskReduce } from '@kviewui/use';
 
 const animation = uni.requireNativePlugin('animation');
 
@@ -60,9 +61,14 @@ const animationTransitionSpin = async (
  * @param {boolean} loop 是否循环执行
  */
 export const useSpin = async (ref: Ref, loop: boolean = false) => {
-    await animationTransitionSpin(ref, 0, 0);
-    await animationTransitionSpin(ref, 360, 46000);
-    if (loop) useSpin(ref, loop);
+    let tasks = [
+        () => animationTransitionSpin(ref, 0, 0),
+        () => animationTransitionSpin(ref, 360, 46000)
+    ];
+
+    useTaskReduce(tasks).then(() => {
+        if (loop) useSpin(ref, loop);
+    });
 }
 
 const animationTransitionPulse = async (ref: Ref, opacity: number) => {
@@ -78,9 +84,13 @@ const animationTransitionPulse = async (ref: Ref, opacity: number) => {
  * @param {boolean} loop 是否循环执行
  */
 export const usePulse = async (ref: Ref, loop: boolean = false) => {
-    await animationTransitionPulse(ref, .5);
-    await animationTransitionPulse(ref, 1);
-    if (loop) usePulse(ref, loop);
+    let tasks = [
+        () => animationTransitionPulse(ref, .5),
+        () => animationTransitionPulse(ref, 1)
+    ];
+    useTaskReduce(tasks).then(() => {
+        if (loop) usePulse(ref, loop);
+    });
 }
 
 const animationTransitionBounce = async (
@@ -99,9 +109,14 @@ const animationTransitionBounce = async (
  * @param {boolean} loop 是否循环执行
  */
 export const useBounce = async (ref: Ref, loop: boolean = false) => {
-    await animationTransitionBounce(ref, '-25%', 'cubic-bezier(0.8, 0, 1, 1)');
-    await animationTransitionBounce(ref, '0', 'cubic-bezier(0, 0, 0.2, 1)');
-    if (loop) useBounce(ref, loop);
+    let tasks = [
+        () => animationTransitionBounce(ref, '-25%', 'cubic-bezier(0.8, 0, 1, 1)'),
+        () => animationTransitionBounce(ref, '0', 'cubic-bezier(0, 0, 0.2, 1)')
+    ];
+
+    useTaskReduce(tasks).then(() => {
+        if (loop) useBounce(ref, loop);
+    });
 }
 
 
@@ -116,9 +131,14 @@ const animationTransitionHeartbeat = async (ref: Ref, scale: number) => {
  * @param {boolean} loop 是否循环执行
  */
 export const useHeartbeat = async (ref: Ref, loop: boolean = false) => {
-    await animationTransitionHeartbeat(ref, 1.1);
-    await animationTransitionHeartbeat(ref, 1);
-    if (loop) useHeartbeat(ref, loop);
+    let tasks = [
+        () => animationTransitionHeartbeat(ref, 1.1),
+        () => animationTransitionHeartbeat(ref, 1)
+    ];
+
+    useTaskReduce(tasks).then(() => {
+        if (loop) useHeartbeat(ref, loop);
+    });
 }
 
 const animationTransitionShake = async (ref: Ref, x: string) => {
@@ -132,13 +152,62 @@ const animationTransitionShake = async (ref: Ref, x: string) => {
  * @param {boolean} loop 是否循环执行
  */
 export const useShake = async (ref: Ref, loop: boolean = false) => {
-    await animationTransitionShake(ref, '-8px');
-    await animationTransitionShake(ref, '7px');
-    await animationTransitionShake(ref, '-6px');
-    await animationTransitionShake(ref, '5px');
-    await animationTransitionShake(ref, '-4px');
-    await animationTransitionShake(ref, '3px');
-    await animationTransitionShake(ref, '-2px');
-    await animationTransitionShake(ref, '1px');
-    if (loop) setTimeout(() => { useShake(ref, loop); });
+    let tasks = [
+        () => animationTransitionShake(ref, '-8px'),
+        () => animationTransitionShake(ref, '7px'),
+        () => animationTransitionShake(ref, '-6px'),
+        () => animationTransitionShake(ref, '5px'),
+        () => animationTransitionShake(ref, '-4px'),
+        () => animationTransitionShake(ref, '3px'),
+        () => animationTransitionShake(ref, '-2px'),
+        () => animationTransitionShake(ref, '1px')
+    ];
+    let doTask = useTaskReduce(tasks);
+    doTask.then(() => {
+        if (loop) setTimeout(() => { useShake(ref, loop); }, 200);
+    })
+}
+
+const animationTransitionFadeIn = async (ref: Ref, opacity: number) => {
+    return await animationTransition(ref, {
+        opacity: opacity
+    }, 2000, 0, false, 'cubic-bezier(.39, .575, .565, 1.000)');
+}
+
+/**
+ * 渐显动画
+ * @param {Ref} ref 将要执行的动画元素
+ * @param {boolean} loop 是否循环执行
+ */
+export const useFadeIn = async (ref: Ref, loop: boolean = false) => {
+    let tasks = [
+        () => animationTransitionFadeIn(ref, 0),
+        () => animationTransitionFadeIn(ref, 1)
+    ];
+
+    useTaskReduce(tasks).then(() => {
+        if (loop) setTimeout(() => { useFadeIn(ref, loop); });
+    })
+}
+
+const animationTransitionFadeOut = async (ref: Ref, opacity: number) => {
+    return await animationTransition(ref, {
+        opacity: opacity
+    }, 300, 0, false, 'ease-out');
+}
+
+/**
+ * 渐隐动画
+ * @param {Ref} ref 将要执行的动画元素
+ * @param {boolean} loop 是否循环执行
+ */
+export const useFadeOut = async (ref: Ref, loop: boolean = false) => {
+    let tasks = [
+        () => animationTransitionFadeOut(ref, 1),
+        () => animationTransitionFadeOut(ref, 0)
+    ];
+
+    useTaskReduce(tasks).then(() => {
+        if (loop) setTimeout(() => { useFadeOut(ref, loop); });
+    });
 }

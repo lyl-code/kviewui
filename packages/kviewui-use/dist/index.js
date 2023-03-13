@@ -89,6 +89,12 @@ function useThrottle(fn, interval, options = {
   return _throttle;
 }
 
+// src/useTaskReduce/index.ts
+var useTaskReduce = (tasks) => {
+  return tasks.reduce((prev, next) => prev.then(() => next()), Promise.resolve());
+};
 
 
-exports.useDebounce = useDebounce; exports.useThrottle = useThrottle;
+
+
+exports.useDebounce = useDebounce; exports.useTaskReduce = useTaskReduce; exports.useThrottle = useThrottle;

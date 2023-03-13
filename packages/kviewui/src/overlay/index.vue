@@ -1,25 +1,29 @@
 <template>
-    <template v-if="data.show">
-        <view class="kui-overlay" @tap="onClose" :catch-move="lockScroll">
-            <slot></slot>
-            <view class="kui-flex-1" :class="[blur ? 'blur' : '']" :style="{
-                position: isWrapper ? 'absolute' : 'fixed',
-                left: 0,
-                right: 0,
-                top: data.top,
-                bottom: 0,
-                height: data.height,
-                backgroundColor: `rgba(0, 0, 0, ${overlayNess})`,
-                borderRadius: `${data.radiusSize}rpx`,
-                zIndex: zIndex,
-            }" @tap="onClose">
-                <view class="kui-flex kui-flex-1" :class="vnodeCenter ? 'kui-justify-center kui-items-center' : ''" :style="{
-                }">
-                    <slot name="vnode"></slot>
+    <!-- <template v-if="data.show">
+        
+    </template> -->
+    <kui-animate v-if="data.show" :name="(animateName as KuiNamespace.AnimateTypeEnum)">
+            <view ref="animateRef" class="kui-overlay" :class="[data.classes]" @tap="onClose" :catch-move="lockScroll">
+                <slot></slot>
+                <view class="kui-flex-1" :class="[blur ? 'blur' : '']" :style="{
+                    position: isWrapper ? 'absolute' : 'fixed',
+                    left: 0,
+                    right: 0,
+                    top: data.top,
+                    bottom: 0,
+                    height: data.height,
+                    backgroundColor: `rgba(0, 0, 0, ${overlayNess})`,
+                    borderRadius: `${data.radiusSize}rpx`,
+                    zIndex: zIndex,
+                }" @tap="onClose">
+                    <view class="kui-flex kui-flex-1" :class="vnodeCenter ? 'kui-justify-center kui-items-center' : ''"
+                        :style="{
+                        }">
+                        <slot name="vnode"></slot>
+                    </view>
                 </view>
             </view>
-        </view>
-    </template>
+        </kui-animate>
 </template>
 
 <script lang="ts">
@@ -47,17 +51,26 @@ import {
     getCurrentInstance,
     nextTick,
     onMounted,
-    useSlots
+    useSlots,
+    computed
 } from "vue";
 
 import { overlayProps } from './types';
 import { theme as appTheme } from '@kviewui/theme';
+import { useFadeIn, useFadeOut } from '@kviewui/animate';
 
-import { createComponent } from '@kviewui/utils';
+import KuiAnimate from '../animate/index.vue';
+
+import { AnimateTypeEnum } from '../shared/types';
+
+import { createComponent, getElId } from '@kviewui/utils';
 const { create } = createComponent('overlay');
 
 export default create({
     props: overlayProps,
+    components: {
+        KuiAnimate
+    },
     emits: ['click', 'update:visible'],
     setup(props, { emit }) {
         const theme: KuiNamespace.Theme = appTheme;
@@ -66,9 +79,12 @@ export default create({
 
         const { proxy }: any = getCurrentInstance();
         const overlay = ref(null);
+        // const animateRef = ref(null);
         const slots = useSlots();
 
         console.log(props.visible);
+
+        let animateName = ref('none');
 
         const data = reactive({
             width: "100%",
@@ -77,8 +93,12 @@ export default create({
             show: props.visible,
             classes: '',
             isMaskClick: props.closeOnClickOverlay,
-            radiusSize: theme.size.radiusSize[props.radiusSize]
+            radiusSize: theme.size.radiusSize[props.radiusSize],
         });
+
+        // let animateName = computed((): KuiNamespace.AnimateTypeEnum => {
+        //     return 'none';
+        // });
 
         // #ifdef H5
         if (!props.isWrapper) {
@@ -91,11 +111,16 @@ export default create({
         const open = () => {
             data.height = `${sysinfo.windowHeight}px`;
             // data.show = true;
-            data.classes = 'fade-in';
+            // data.classes = 'fade-in';
+            // animateName.value = 'none';
+            
+            animateName.value = 'shake';
         }
 
         const close = () => {
-            data.classes = 'fade-out';
+            // data.classes = 'fade-out';
+            // animateName.value = 'none';
+            // animateName.value = 'fade-out';
             // setTimeout(() => {
             // 	data.show = false;
             // }, 120);
@@ -127,12 +152,11 @@ export default create({
             watch(
                 () => props.visible,
                 (newVal) => {
-                    // console.log(newVal);
-                    // console.log(slots)
-                    // console.log(proxy.slots);
-                    // console.log(overlay.value);
                     data.show = newVal;
-                    open();
+
+                    if (newVal) {
+                        open();
+                    }
                 }
             );
         })
@@ -145,7 +169,9 @@ export default create({
             close,
             onClose,
             changeMaskClick,
-            overlay
+            overlay,
+            animateName
+            // animateRef
         }
     }
 });

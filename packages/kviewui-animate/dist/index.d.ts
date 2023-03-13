@@ -53,5 +53,17 @@ declare const useHeartbeat: (ref: Ref, loop?: boolean) => Promise<void>;
  * @param {boolean} loop 是否循环执行
  */
 declare const useShake: (ref: Ref, loop?: boolean) => Promise<void>;
+/**
+ * 渐显动画
+ * @param {Ref} ref 将要执行的动画元素
+ * @param {boolean} loop 是否循环执行
+ */
+declare const useFadeIn: (ref: Ref, loop?: boolean) => Promise<void>;
+/**
+ * 渐隐动画
+ * @param {Ref} ref 将要执行的动画元素
+ * @param {boolean} loop 是否循环执行
+ */
+declare const useFadeOut: (ref: Ref, loop?: boolean) => Promise<void>;
 
-export { animationTransition, useBounce, useHeartbeat, usePulse, useShake, useSpin };
+export { animationTransition, useBounce, useFadeIn, useFadeOut, useHeartbeat, usePulse, useShake, useSpin };

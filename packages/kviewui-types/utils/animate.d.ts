@@ -20,4 +20,9 @@ declare namespace KuiNamespace {
      * 参考：[https://weexapp.com/zh/docs/modules/animation.html#transition](https://weexapp.com/zh/docs/modules/animation.html#transition)
      */
     type AnimateTimingFunction = 'linear' | 'ease-in' | 'ease-out' | 'ease-in-out'
+
+    /**
+     * 动画库支持的动画类型
+     */
+    type AnimateTypeEnum = 'spin' | 'pulse' | 'bounce' | 'heartbeat' | 'shake' | 'fade-in' | 'fade-out' | 'none';
 }

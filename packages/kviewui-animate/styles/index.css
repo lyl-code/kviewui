@@ -1,6 +1,6 @@
 /**
 * kviewui动画样式库，由工具自动生成，请不要手动修改！！！
-* 2023-02-17 21:46
+* 2023-03-13 15:11
 * @author kviewui@163.com
 * @version 1.0.0
 * @see {@link git+https://github.com/kviewui/kviewui}
@@ -317,6 +317,58 @@
   80% {
     -webkit-transform: translateX(1px);
             transform: translateX(1px);
+  }
+}
+.kui-animate-fade-in {
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+          animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.kui-animate-fade-out {
+  -webkit-animation-name: fadeOut;
+          animation-name: fadeOut;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 /* 动画循环执行 */

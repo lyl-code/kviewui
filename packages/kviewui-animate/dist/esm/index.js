@@ -1,4 +1,5 @@
 // src/weex-animation/index.ts
+import { useTaskReduce } from "@kviewui/use";
 var animation = uni.requireNativePlugin("animation");
 var animationTransition = (ref, options, duration = 0, delay = 0, needLayout = false, timingFunction = "linear") => {
   return new Promise((resolve, _) => {
@@ -21,10 +22,14 @@ var animationTransitionSpin = async (ref, deg, duration) => {
   }, duration, 0, false, "linear");
 };
 var useSpin = async (ref, loop = false) => {
-  await animationTransitionSpin(ref, 0, 0);
-  await animationTransitionSpin(ref, 360, 46e3);
-  if (loop)
-    useSpin(ref, loop);
+  let tasks = [
+    () => animationTransitionSpin(ref, 0, 0),
+    () => animationTransitionSpin(ref, 360, 46e3)
+  ];
+  useTaskReduce(tasks).then(() => {
+    if (loop)
+      useSpin(ref, loop);
+  });
 };
 var animationTransitionPulse = async (ref, opacity) => {
   return await animationTransition(ref, {
@@ -32,10 +37,14 @@ var animationTransitionPulse = async (ref, opacity) => {
   }, 1e3, 0, false, "cubic-bezier(0.4, 0, 0.6, 1)");
 };
 var usePulse = async (ref, loop = false) => {
-  await animationTransitionPulse(ref, 0.5);
-  await animationTransitionPulse(ref, 1);
-  if (loop)
-    usePulse(ref, loop);
+  let tasks = [
+    () => animationTransitionPulse(ref, 0.5),
+    () => animationTransitionPulse(ref, 1)
+  ];
+  useTaskReduce(tasks).then(() => {
+    if (loop)
+      usePulse(ref, loop);
+  });
 };
 var animationTransitionBounce = async (ref, y, timingFunction) => {
   return await animationTransition(ref, {
@@ -43,10 +52,14 @@ var animationTransitionBounce = async (ref, y, timingFunction) => {
   }, 500, 0, false, timingFunction);
 };
 var useBounce = async (ref, loop = false) => {
-  await animationTransitionBounce(ref, "-25%", "cubic-bezier(0.8, 0, 1, 1)");
-  await animationTransitionBounce(ref, "0", "cubic-bezier(0, 0, 0.2, 1)");
-  if (loop)
-    useBounce(ref, loop);
+  let tasks = [
+    () => animationTransitionBounce(ref, "-25%", "cubic-bezier(0.8, 0, 1, 1)"),
+    () => animationTransitionBounce(ref, "0", "cubic-bezier(0, 0, 0.2, 1)")
+  ];
+  useTaskReduce(tasks).then(() => {
+    if (loop)
+      useBounce(ref, loop);
+  });
 };
 var animationTransitionHeartbeat = async (ref, scale) => {
   return await animationTransition(ref, {
@@ -54,10 +67,14 @@ var animationTransitionHeartbeat = async (ref, scale) => {
   }, 500, 0, false);
 };
 var useHeartbeat = async (ref, loop = false) => {
-  await animationTransitionHeartbeat(ref, 1.1);
-  await animationTransitionHeartbeat(ref, 1);
-  if (loop)
-    useHeartbeat(ref, loop);
+  let tasks = [
+    () => animationTransitionHeartbeat(ref, 1.1),
+    () => animationTransitionHeartbeat(ref, 1)
+  ];
+  useTaskReduce(tasks).then(() => {
+    if (loop)
+      useHeartbeat(ref, loop);
+  });
 };
 var animationTransitionShake = async (ref, x) => {
   return await animationTransition(ref, {
@@ -65,22 +82,63 @@ var animationTransitionShake = async (ref, x) => {
   }, 50, 0, false, "ease-out");
 };
 var useShake = async (ref, loop = false) => {
-  await animationTransitionShake(ref, "-8px");
-  await animationTransitionShake(ref, "7px");
-  await animationTransitionShake(ref, "-6px");
-  await animationTransitionShake(ref, "5px");
-  await animationTransitionShake(ref, "-4px");
-  await animationTransitionShake(ref, "3px");
-  await animationTransitionShake(ref, "-2px");
-  await animationTransitionShake(ref, "1px");
-  if (loop)
-    setTimeout(() => {
-      useShake(ref, loop);
-    });
+  let tasks = [
+    () => animationTransitionShake(ref, "-8px"),
+    () => animationTransitionShake(ref, "7px"),
+    () => animationTransitionShake(ref, "-6px"),
+    () => animationTransitionShake(ref, "5px"),
+    () => animationTransitionShake(ref, "-4px"),
+    () => animationTransitionShake(ref, "3px"),
+    () => animationTransitionShake(ref, "-2px"),
+    () => animationTransitionShake(ref, "1px")
+  ];
+  let doTask = useTaskReduce(tasks);
+  doTask.then(() => {
+    if (loop)
+      setTimeout(() => {
+        useShake(ref, loop);
+      }, 200);
+  });
+};
+var animationTransitionFadeIn = async (ref, opacity) => {
+  return await animationTransition(ref, {
+    opacity
+  }, 2e3, 0, false, "cubic-bezier(.39, .575, .565, 1.000)");
+};
+var useFadeIn = async (ref, loop = false) => {
+  let tasks = [
+    () => animationTransitionFadeIn(ref, 0),
+    () => animationTransitionFadeIn(ref, 1)
+  ];
+  useTaskReduce(tasks).then(() => {
+    if (loop)
+      setTimeout(() => {
+        useFadeIn(ref, loop);
+      });
+  });
+};
+var animationTransitionFadeOut = async (ref, opacity) => {
+  return await animationTransition(ref, {
+    opacity
+  }, 300, 0, false, "ease-out");
+};
+var useFadeOut = async (ref, loop = false) => {
+  let tasks = [
+    () => animationTransitionFadeOut(ref, 1),
+    () => animationTransitionFadeOut(ref, 0)
+  ];
+  useTaskReduce(tasks).then(() => {
+    if (loop)
+      setTimeout(() => {
+        useFadeOut(ref, loop);
+      });
+  });
 };
 export {
   animationTransition,
   useBounce,
+  useFadeIn,
+  useFadeOut,
   useHeartbeat,
   usePulse,
   useShake,

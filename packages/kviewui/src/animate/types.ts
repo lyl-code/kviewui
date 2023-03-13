@@ -14,8 +14,8 @@ export const animateProps = {
      * 动画类型
      */
     name: {
-        type: String as PropType<AnimateTypeEnum>,
-        default: 'none'
+        type: String as PropType<KuiNamespace.AnimateTypeEnum>,
+        default: 'none' as KuiNamespace.AnimateTypeEnum
     },
     /**
      * 是否循环执行
