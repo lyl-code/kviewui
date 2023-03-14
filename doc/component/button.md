@@ -23,7 +23,7 @@ import KuiButton from 'kviewui/src/button/index.vue';
 <!-- <show-code com-type="button" com-show-type="theme" /> -->
 ::: code-group
 
-<<< @/examples/button/Theme.vue
+<<< @/examples/button/Theme.vue {3,7,14,18,22,26}
 
 :::
 
@@ -36,7 +36,7 @@ import KuiButton from 'kviewui/src/button/index.vue';
 <!-- <show-code com-type="button" com-show-type="text" /> -->
 ::: code-group
 
-<<< @/examples/button/Text.vue
+<<< @/examples/button/Text.vue{5,10}
 
 :::
 
@@ -47,7 +47,7 @@ import KuiButton from 'kviewui/src/button/index.vue';
 <!-- <show-code com-type="button" com-show-type="disabled" /> -->
 ::: code-group
 
-<<< @/examples/button/Disabled.vue
+<<< @/examples/button/Disabled.vue{4,11,18}
 
 :::
 
@@ -58,7 +58,7 @@ import KuiButton from 'kviewui/src/button/index.vue';
 <!-- <show-code com-type="button" com-show-type="shape" /> -->
 ::: code-group
 
-<<< @/examples/button/Shape.vue
+<<< @/examples/button/Shape.vue{4,9,14,19}
 
 :::
 
@@ -69,7 +69,7 @@ import KuiButton from 'kviewui/src/button/index.vue';
 <!-- <show-code com-type="button" com-show-type="loading" /> -->
 ::: code-group
 
-<<< @/examples/button/Loading.vue
+<<< @/examples/button/Loading.vue{4,8}
 
 :::
 
@@ -80,7 +80,7 @@ import KuiButton from 'kviewui/src/button/index.vue';
 <!-- <show-code com-type="button" com-show-type="icon" /> -->
 ::: code-group
 
-<<< @/examples/button/Icon.vue
+<<< @/examples/button/Icon.vue{6,10}
 
 :::
 
@@ -91,7 +91,7 @@ import KuiButton from 'kviewui/src/button/index.vue';
 <!-- <show-code com-type="button" com-show-type="size" /> -->
 ::: code-group
 
-<<< @/examples/button/Size.vue
+<<< @/examples/button/Size.vue{4,13,18}
 
 :::
 
@@ -102,7 +102,7 @@ import KuiButton from 'kviewui/src/button/index.vue';
 <!-- <show-code com-type="button" com-show-type="block" /> -->
 ::: code-group
 
-<<< @/examples/button/Block.vue
+<<< @/examples/button/Block.vue{5}
 
 :::
 
@@ -113,18 +113,18 @@ import KuiButton from 'kviewui/src/button/index.vue';
 <!-- <show-code com-type="button" com-show-type="shadow" /> -->
 ::: code-group
 
-<<< @/examples/button/Shadow.vue
+<<< @/examples/button/Shadow.vue{4,5,10,11,15,16,21,22,27,28,33,34}
 
 :::
 
 ## 自定义颜色
 
-通过 background-color 属性可以自定义按钮的背景色。通过 text-color 属性可以自定义按钮的文本颜色。通过 gradient 属性可以设置按钮主题色渐变，具体可参考主题色生成原理。
+通过 `background-color` 属性可以自定义按钮的背景色。通过 `text-color` 属性可以自定义按钮的文本颜色。通过 `gradient` 属性可以设置按钮主题色渐变，具体可参考主题色生成原理。
 
 <!-- <show-code com-type="button" com-show-type="custom-color" /> -->
 ::: code-group
 
-<<< @/examples/button/CustomColor.vue
+<<< @/examples/button/CustomColor.vue{3,7,12,13}
 
 :::
 
@@ -144,13 +144,16 @@ import KuiButton from 'kviewui/src/button/index.vue';
 | text-color | 按钮文本颜色 | String | -
 | disabled | 是否禁用按钮 | Boolean | `false`
 | block | 是否为块级元素 | Boolean | `false` 
-| icon | 按钮图标，同 <a href="icons">Icons 图标</a> 组件 type 属性 | String | - 
+| icon | 按钮图标，同 <a href="icons">Icons 图标</a> 组件 `type` 属性 | String | - 
 | loading | 按钮 loading 状态 | Boolean | `false` 
-| loading-type | 按钮 loading 类型，可参考 <a href="spin">Spin 加载动画</a>组件 |String | `false` 
+| loading-type | 按钮 loading 类型，可参考 [Spin 加载动画](/component/spin) 组件 |String | `false` 
 | shadow | 是否开启按钮阴影 | Boolean | `false` 
 | shadow-size | 按钮阴影大小，有效值见下方说明 | String | - 
 | throttle | 防抖节流，有效值见下方说明 | Number | `0` 
-| mode`通用属性` | 页面模式，有效值见下方说明 | String | `light` 
+| mode [`公共属性`](#) | 页面模式，见 [组件公共属性](/guide/component#组件公共属性) | String | `light` 
+| custom-class [`公共属性`](#) | 自定义class，见 [组件公共属性](/guide/component#组件公共属性) | String | -
+| custom-style [`公共属性`](#) | 自定义style，见 [组件公共属性](/guide/component#组件公共属性) | CSSProperties | {}
+| space-provide [`公共属性`](#) | 是否接收space的provide参数，见 [组件公共属性](/guide/component#组件公共属性) | Boolean | `true`
 
 ### Type 有效值
 | 值 | 说明 |
@@ -191,12 +194,6 @@ import KuiButton from 'kviewui/src/button/index.vue';
 | 0 | 关闭防抖节流 
 | 1 | 开启节流 
 | 2 | 开启防抖 
-
-### Mode 有效值
-| 值 | 说明 
-|---|--- 
-| light | 明亮模式 
-| dark | 暗黑模式 
 
 ### Props 特殊说明
 

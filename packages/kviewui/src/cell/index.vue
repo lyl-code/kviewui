@@ -10,6 +10,7 @@
       borderBottomRightRadius: `${data.isBorder ? 0 : data.bottomRadius}rpx`,
       backgroundColor: data.backgroundColor,
       marginBottom: `${data.marginBottom}rpx`,
+      ...customStyle
     }"
     @touchstart="tapstart"
     @touchend="tapend"

@@ -16,34 +16,34 @@ import KuiImage from 'kviewui/src/image/index.vue';
 
 ## 基础用法
 
-基础用法与原生 img 标签一致，可以设置 src、width、height、alt 等原生属性。
+基础用法与原生 img 标签一致，可以设置 `src`、`width`、`height`、`alt` 等原生属性。
 
 <!-- <show-code com-type="image" com-show-type="base" /> -->
 ::: code-group
 
-<<< @/examples/image/Base.vue
+<<< @/examples/image/Base.vue{3}
 
 :::
 
 ## 填充模式
 
-通过 mode 属性可以设置图片填充模式，等同于 uniapp 原生 image 组件的 mode 属性，可选值见下方表格。
+通过 `fit` 属性可以设置图片填充模式，等同于 [uniapp image](https://uniapp.dcloud.net.cn/component/image.html) 组件的 `mode` 属性，可选值见下方表格。
 
 <!-- <show-code com-type="image" com-show-type="mode" /> -->
 ::: code-group
 
-<<< @/examples/image/Mode.vue
+<<< @/examples/image/Mode.vue{4,7}
 
 :::
 
 ## 设置圆角
 
-通过 radius 属性可以设置图片圆角大小，当宽高一致时将为圆形图片
+通过 `radius` 属性可以设置图片圆角大小，当宽高一致时将为圆形图片。
 
 <!-- <show-code com-type="image" com-show-type="radius" /> -->
 ::: code-group
 
-<<< @/examples/image/Radius.vue
+<<< @/examples/image/Radius.vue{7,14}
 
 :::
 
@@ -54,7 +54,7 @@ import KuiImage from 'kviewui/src/image/index.vue';
 <!-- <show-code com-type="image" com-show-type="error" /> -->
 ::: code-group
 
-<<< @/examples/image/Error.vue
+<<< @/examples/image/Error.vue{4}
 
 :::
 
@@ -63,7 +63,7 @@ import KuiImage from 'kviewui/src/image/index.vue';
 <!-- <show-code com-type="image" com-show-type="click" /> -->
 ::: code-group
 
-<<< @/examples/image/Click.vue
+<<< @/examples/image/Click.vue{7}
 
 :::
 
@@ -74,7 +74,7 @@ import KuiImage from 'kviewui/src/image/index.vue';
 <!-- <show-code com-type="image" com-show-type="preview" /> -->
 ::: code-group
 
-<<< @/examples/image/Preview.vue
+<<< @/examples/image/Preview.vue{7}
 
 :::
 
@@ -85,7 +85,7 @@ import KuiImage from 'kviewui/src/image/index.vue';
 <!-- <show-code com-type="image" com-show-type="lazyload" /> -->
 ::: code-group
 
-<<< @/examples/image/Lazyload.vue
+<<< @/examples/image/Lazyload.vue{6}
 
 :::
 
@@ -96,7 +96,7 @@ import KuiImage from 'kviewui/src/image/index.vue';
 | 参数         | 说明                             | 类型   | 默认值           |
 |--------------|----------------------------------|--------|------------------|
 | src         | 图片链接               | String | -                |
-| mode         | 图片填充模式，等同于[uniapp image](https://uniapp.dcloud.net.cn/component/image.html)组件的 mode 属性     | ImageFit | 'scaleToFill'                |
+| fit         | 图片填充模式，等同于[uniapp image](https://uniapp.dcloud.net.cn/component/image.html)组件的 mode 属性     | ImageFit | 'scaleToFill'                |
 | width         | 宽度，默认单位`px`               | String | 100%                |
 | height         | 高度，默认单位`px`               | String | -                |
 | fade-show      | 是否开启展示动画               | Boolean | true                |
@@ -107,6 +107,10 @@ import KuiImage from 'kviewui/src/image/index.vue';
 | loading         | 是否展示加载中图片               | Boolean | true              |
 | preview         | 是否开启图片点击预览               | Boolean | false                |
 | lazyload        | 是否开启图片懒加载               | Boolean | false                |
+| mode [`公共属性`](#) | 页面模式，见 [组件公共属性](/guide/component#组件公共属性) | String | `light` 
+| custom-class [`公共属性`](#) | 自定义class，见 [组件公共属性](/guide/component#组件公共属性) | String | -
+| custom-style [`公共属性`](#) | 自定义style，见 [组件公共属性](/guide/component#组件公共属性) | CSSProperties | {}
+| space-provide [`公共属性`](#) | 是否接收space的provide参数，见 [组件公共属性](/guide/component#组件公共属性) | Boolean | `true`
 
 ### ImageMode 图片填充模式
 

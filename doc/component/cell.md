@@ -22,7 +22,7 @@ import KuiCellGroup from 'kviewui/src/cell-group/index.vue';
 <!-- <show-code com-type="cell" com-show-type="base" /> -->
 ::: code-group
 
-<<< @/examples/cell/Base.vue
+<<< @/examples/cell/Base.vue{3,4,5,7,8,9,10,12,13,14,15}
 
 :::
 
@@ -33,7 +33,7 @@ import KuiCellGroup from 'kviewui/src/cell-group/index.vue';
 <!-- <show-code com-type="cell" com-show-type="slot" /> -->
 ::: code-group
 
-<<< @/examples/cell/Slot.vue
+<<< @/examples/cell/Slot.vue{3,8}
 
 :::
 
@@ -44,7 +44,7 @@ import KuiCellGroup from 'kviewui/src/cell-group/index.vue';
 <!-- <show-code com-type="cell" com-show-type="link-group-base" /> -->
 ::: code-group
 
-<<< @/examples/cell/LinkGroupBase.vue
+<<< @/examples/cell/LinkGroupBase.vue{3,4}
 
 :::
 
@@ -55,7 +55,7 @@ import KuiCellGroup from 'kviewui/src/cell-group/index.vue';
 <!-- <show-code com-type="cell" com-show-type="link-group-space" /> -->
 ::: code-group
 
-<<< @/examples/cell/LinkGroupSpace.vue
+<<< @/examples/cell/LinkGroupSpace.vue{5}
 
 :::
 
@@ -66,7 +66,7 @@ import KuiCellGroup from 'kviewui/src/cell-group/index.vue';
 <!-- <show-code com-type="cell" com-show-type="left-icon" /> -->
 ::: code-group
 
-<<< @/examples/cell/LeftIcon.vue
+<<< @/examples/cell/LeftIcon.vue{3}
 
 :::
 
@@ -77,7 +77,7 @@ import KuiCellGroup from 'kviewui/src/cell-group/index.vue';
 <!-- <show-code com-type="cell" com-show-type="icon" /> -->
 ::: code-group
 
-<<< @/examples/cell/Icon.vue
+<<< @/examples/cell/Icon.vue{5}
 
 :::
 
@@ -88,7 +88,7 @@ import KuiCellGroup from 'kviewui/src/cell-group/index.vue';
 <!-- <show-code com-type="cell" com-show-type="center" /> -->
 ::: code-group
 
-<<< @/examples/cell/Center.vue
+<<< @/examples/cell/Center.vue{6}
 
 :::
 
@@ -103,6 +103,10 @@ import KuiCellGroup from 'kviewui/src/cell-group/index.vue';
 | cell-radius | 单元格圆角大小 | Number | - 
 | desc | 分组描述 | String | - 
 | type | 单元格类型，有效值见下方说明 | String | `normal` 
+| mode [`公共属性`](#) | 页面模式，见 [组件公共属性](/guide/component#组件公共属性) | String | `light` 
+| custom-class [`公共属性`](#) | 自定义class，见 [组件公共属性](/guide/component#组件公共属性) | String | -
+| custom-style [`公共属性`](#) | 自定义style，见 [组件公共属性](/guide/component#组件公共属性) | CSSProperties | {}
+| space-provide [`公共属性`](#) | 是否接收space的provide参数，见 [组件公共属性](/guide/component#组件公共属性) | Boolean | `true`
 
 ### Type 有效值
 | 值 | 说明 
@@ -125,10 +129,13 @@ import KuiCellGroup from 'kviewui/src/cell-group/index.vue';
 | radius | 圆角大小 | Number | 10 
 | click-status | 点击态 | Boolean | true 
 | show-right-icon | 是否展示右侧箭头 | Boolean | true 
-| mode `通用属性` | 页面模式，有效值见下方说明 | String | light 
 | url `非H5环境为复制链接` | 点击后跳转的链接地址 | String | - 
 | icon | 左边图标 | String | - 
 | center | 是否使内容垂直居中 | Boolean | false 
+| mode [`公共属性`](#) | 页面模式，见 [组件公共属性](/guide/component#组件公共属性) | String | `light` 
+| custom-class [`公共属性`](#) | 自定义class，见 [组件公共属性](/guide/component#组件公共属性) | String | -
+| custom-style [`公共属性`](#) | 自定义style，见 [组件公共属性](/guide/component#组件公共属性) | CSSProperties | {}
+| group [`公共属性`](#) | 是否启用组模式，见 [组件公共属性](/guide/component#组件公共属性) | Boolean | `true`
 
 ### Mode 有效值
 | 值 | 说明 |

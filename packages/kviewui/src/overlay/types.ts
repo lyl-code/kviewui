@@ -13,13 +13,13 @@ export const overlayProps = {
 		type: Number,
 		default: 99
 	},
-	/**
-	 * 填充内容
-	 */
-	vnode: {
-		type: String,
-		default: ''
-	},
+	// /**
+	//  * 填充内容
+	//  */
+	// vnode: {
+	// 	type: String,
+	// 	default: ''
+	// },
 	/**
 	 * 填充内容是否居中显示
 	 */

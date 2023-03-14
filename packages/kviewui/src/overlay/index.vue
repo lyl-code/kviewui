@@ -3,7 +3,9 @@
         
     </template> -->
     <kui-animate v-if="data.show" :name="(animateName as KuiNamespace.AnimateTypeEnum)">
-            <view ref="animateRef" class="kui-overlay" :class="[data.classes]" @tap="onClose" :catch-move="lockScroll">
+            <view ref="animateRef" class="kui-overlay" :class="[data.classes, customClass]" :style="{
+                ...customStyle
+            }" @tap="onClose">
                 <slot></slot>
                 <view class="kui-flex-1" :class="[blur ? 'blur' : '']" :style="{
                     position: isWrapper ? 'absolute' : 'fixed',
@@ -114,13 +116,13 @@ export default create({
             // data.classes = 'fade-in';
             // animateName.value = 'none';
             
-            animateName.value = 'shake';
+            animateName.value = 'fade-in';
         }
 
         const close = () => {
             // data.classes = 'fade-out';
             // animateName.value = 'none';
-            // animateName.value = 'fade-out';
+            animateName.value = 'fade-out';
             // setTimeout(() => {
             // 	data.show = false;
             // }, 120);

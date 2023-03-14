@@ -6,7 +6,8 @@ const getGuideSidebar = () => {
                 { text: '介绍', link: '/guide/intro' },
                 { text: '快速上手', link: '/guide/start' },
                 { text: '颜色', link: '/guide/palette' },
-                { text: '设计变量', link: '/guide/token' }
+                { text: '设计变量', link: '/guide/token' },
+                { text: '组件指南', link: '/guide/component' }
             ]
         },
         {

@@ -142,17 +142,13 @@ import './assets/font/iconfont.css';
 | color-level     | 图标颜色色阶，见[颜色色阶](/guide/palette#颜色色阶)                             | String\|Number    | 5
 | size            | 图标大小，支持`px` `rpx` `rem` `em` `upx` `vw` `vh`，默认单位`px`                                | String\|Number            | 28                |
 | weight          | 图标粗细                                | Number            | 100                |
-| mode`通用属性`   | 页面模式                                | String            | `light`         |
 | custom-class-name          | 自定义icon基础类名                                | String            | `kui-icons`           |
 | custom-prefix         | 自定义icon类名前缀                 | String            | `kui-icon`                |
 | unicode            | 自定义图标的unicode值，<a-link>nvue有效</a-link>                                | Number            | -                |
 | icon-url            | 自定义图标的ttf字体文件路径                                | String            | -                |
-
-### Mode 有效值
-| 值 | 说明 |
-|----|------|
-| light | 明亮模式 |
-| dark | 暗黑模式 |
+| mode [`公共属性`](#) | 页面模式，见 [组件公共属性](/guide/component#组件公共属性) | String | `light` 
+| custom-class [`公共属性`](#) | 自定义class，见 [组件公共属性](/guide/component#组件公共属性) | String | -
+| custom-style [`公共属性`](#) | 自定义style，见 [组件公共属性](/guide/component#组件公共属性) | CSSProperties | {}
 
 ### Events
 

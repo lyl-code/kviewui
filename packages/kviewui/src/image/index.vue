@@ -1,14 +1,15 @@
 <template>
-  <view class="kui-leading-none" :class="[elId, customClass]">
+  <view class="kui-leading-none" :class="[elId]">
     <!-- <image :src="src" style="width: 0px;height: 0px;" @load="onLoadSuccess" @error="onLoadError"></image> -->
     <view
       class="kui-bg-grey-2 kui-flex kui-flex-col kui-justify-center kui-items-center"
-      :class="data.animateShow ? 'kui-animate-pulse' : ''"
+      :class="[data.animateShow ? 'kui-animate-pulse' : '', customClass]"
       :style="{
         width: width,
         height: height,
         borderRadius: `${radius}rpx`,
         ...spaceStyle,
+        ...customStyle
       }"
       v-if="data.loading || data.loadError"
     >
@@ -27,10 +28,12 @@
     </view>
     <template v-if="!data.loading && !data.loadError">
       <image
+        :class="[customClass]"
         :src="data.src"
         :style="{
           ...imageStyle,
           ...spaceStyle,
+          ...customStyle
         }"
         :mode="disableFit ? '' : fit"
         @click="onClick"

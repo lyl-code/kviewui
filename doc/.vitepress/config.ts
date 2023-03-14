@@ -29,6 +29,13 @@ export default defineConfig({
             { text: '工具', link: '' },
             { text: '模版', link: '' },
             { 
+                text: '1.0.0-alpha.01',
+                items: [
+                    { text: '更新日志', link: 'https://gitcode.net/kviewui/kviewui/-/blob/main/CHANGELOG.md' },
+                    { text: '贡献者', link: 'https://gitcode.net/kviewui/kviewui/-/blob/main/CONTRIBUTING.md' }
+                ]
+             },
+            { 
                 text: '相关链接',
                 items: [
                     { text: 'uni-app', link: 'https://uniapp.dcloud.net.cn' },
