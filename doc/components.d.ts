@@ -20,6 +20,7 @@ declare module '@vue/runtime-core' {
     ATable: typeof import('@arco-design/web-vue')['Table']
     ATag: typeof import('@arco-design/web-vue')['Tag']
     ATypographyText: typeof import('@arco-design/web-vue')['TypographyText']
+    Badge: typeof import('./.vitepress/vitepress/components/Badge.vue')['default']
     ChangeMode: typeof import('./.vitepress/vitepress/components/ChangeMode.vue')['default']
     Colors: typeof import('./.vitepress/vitepress/components/token/Colors.vue')['default']
     CssPrefix: typeof import('./.vitepress/vitepress/components/css/CssPrefix.md')['default']

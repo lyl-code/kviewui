@@ -15087,11 +15087,11 @@ var createComponent = (name) => {
 
 // src/unit/index.ts
 var getUnitByUnit = (e) => {
-  if (e.endsWith("px")) {
-    return "px";
-  }
   if (e.endsWith("rpx")) {
     return "rpx";
+  }
+  if (e.endsWith("px")) {
+    return "px";
   }
   if (e.endsWith("rem")) {
     return "rem";
@@ -15112,7 +15112,7 @@ var getUnitByUnit = (e) => {
 };
 var getNumberByUnit = (e) => {
   const arr = e.split(getUnitByUnit(e));
-  return arr[0];
+  return arr[0] || 0;
 };
 
 // src/use/provide.ts

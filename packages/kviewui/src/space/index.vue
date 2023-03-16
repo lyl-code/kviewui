@@ -7,7 +7,7 @@
         ]" 
         :style="{
             justifyContent: data.justify,
-            alignItems: data.align,
+            // alignItems: data.align,
             ...spaceStyle,
             ...customStyle
         }">

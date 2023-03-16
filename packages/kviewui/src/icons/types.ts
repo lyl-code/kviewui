@@ -44,14 +44,21 @@ export const iconProps = {
      */
     customClassName: {
         type: String,
-        default: 'kui-icons',
+        default: '',
     },
     /**
      * 自定义icon类名前缀
      */
     customPrefix: {
         type: String,
-        default: 'kui-icon'
+        default: ''
+    },
+    /**
+     * 自定义字体文件的font-family
+     */
+    customFontFamily: {
+        type: String,
+        default: ''
     },
     /**
      * 自定义图标的unicode值，nvue有效

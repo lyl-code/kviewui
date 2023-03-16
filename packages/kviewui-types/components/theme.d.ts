@@ -5,6 +5,11 @@ declare namespace KuiNamespace {
     type ThemeToken = 'primary' | 'info' | 'success' | 'warning' | 'danger';
 
     /**
+     * 页面模式有效值
+     */
+    type ModeEnum = 'light' | 'dark';
+
+    /**
      * 预设颜色库色阶
      */
     type ColorLevelMap = {

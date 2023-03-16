@@ -112,7 +112,7 @@ import KuiImage from 'kviewui/src/image/index.vue';
 | custom-style [`公共属性`](#) | 自定义style，见 [组件公共属性](/guide/component#组件公共属性) | CSSProperties | {}
 | space-provide [`公共属性`](#) | 是否接收space的provide参数，见 [组件公共属性](/guide/component#组件公共属性) | Boolean | `true`
 
-### ImageMode 图片填充模式
+### ImageFit 图片填充模式
 
 支持uniapp image组件的 mode 属性值，可参考 [uniapp image](https://uniapp.dcloud.net.cn/component/image.html) 组件的 mode 属性
 

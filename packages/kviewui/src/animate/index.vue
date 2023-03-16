@@ -1,12 +1,15 @@
 <template>
-    <view :id="elId" style="display: inline-block;" ref="animateRef" :class="[animateClasses, animateLoopClass, customClass]">
+    <view :id="elId" :style="{
+        ...animateStyle,
+        ...customStyle
+    }" ref="animateRef" :class="[animateClasses, animateLoopClass, customClass]">
         <slot></slot>
     </view>
 </template>
 
 <script lang="ts">
 
-import { computed, onMounted, ref, toRefs, watch, nextTick } from 'vue';
+import { computed, onMounted, ref, toRefs, watch, nextTick, CSSProperties, reactive } from 'vue';
 import { createComponent, getElId } from '@kviewui/utils';
 import { animateProps } from './types';
 
@@ -61,35 +64,77 @@ export default create({
             return '';
         });
 
+        const getAnimateDuration = (name: KuiNamespace.AnimateTypeEnum): number => {
+            let duration: number = 0;
+
+            switch (name) {
+                case 'spin':
+                    duration = 46000;
+                    break;
+                case 'pulse':
+                    duration = 1000;
+                    break;
+                case 'bounce':
+                    duration = 500;
+                    break;
+                case 'heartbeat':
+                    duration = 500;
+                    break;
+                case 'shake':
+                    duration = 50;
+                    break;
+                case 'fade-in':
+                    duration = 300;
+                    break;
+                case 'fade-out':
+                    duration = 300;
+                    break;
+            }
+
+            return duration;
+        }
+
         const useAnimate = (name: KuiNamespace.AnimateTypeEnum) => {
             animateClasses.value = animateClass(name);
             // #ifdef APP-NVUE
             switch (name) {
                 case 'spin':
-                    useSpin((animateRef.value as any).ref, props.loop);
+                    useSpin((animateRef.value as any).ref, props.loop, props.durationAuto ? getAnimateDuration('spin') : props.duration, props.delay);
                     break;
                 case 'pulse':
-                    usePulse((animateRef.value as any).ref, props.loop);
+                    usePulse((animateRef.value as any).ref, props.loop, props.durationAuto ? getAnimateDuration('pulse') : props.duration, props.delay);
                     break;
                 case 'bounce':
-                    useBounce((animateRef.value as any).ref, props.loop);
+                    useBounce((animateRef.value as any).ref, props.loop, props.durationAuto ? getAnimateDuration('bounce') : props.duration, props.delay);
                     break;
                 case 'heartbeat':
-                    useHeartbeat((animateRef.value as any).ref, props.loop);
+                    useHeartbeat((animateRef.value as any).ref, props.loop, props.durationAuto ? getAnimateDuration('heartbeat') : props.duration, props.delay);
                     break;
                 case 'shake':
-                    useShake((animateRef.value as any).ref, props.loop);
+                    useShake((animateRef.value as any).ref, props.loop, props.durationAuto ? getAnimateDuration('shake') : props.duration, props.delay);
                     break;
                 case 'fade-in':
-                    useFadeIn((animateRef.value as any).ref, props.loop);
+                    useFadeIn((animateRef.value as any).ref, props.loop, props.durationAuto ? getAnimateDuration('fade-in') : props.duration, props.delay);
                     break;
                 case 'fade-out':
-                    useFadeOut((animateRef.value as any).ref, props.loop);
+                    useFadeOut((animateRef.value as any).ref, props.loop, props.durationAuto ? getAnimateDuration('fade-out') : props.duration, props.delay);
+                    break;
             }
             // #endif
         };
 
-        console.log(`旧的值：${props.name}`);
+        const animateStyle = computed(() => {
+            const style: CSSProperties = reactive({});
+
+            // #ifndef APP-NVUE
+            style.display = 'inline-block';
+            // #endif
+
+            style.animationDuration = `${props.duration}ms !important`;
+            style.animationDelay = `${props.delay}ms !important`;
+
+            return style;
+        });
 
         nextTick(() => {
             useAnimate(props.name);
@@ -102,7 +147,7 @@ export default create({
                 () => props.name,
                 (newVal) => {
                     console.log(`新的值：${newVal}`);
-                    // useAnimate(newVal);
+                    useAnimate(newVal);
                     nextTick(() => {
                         // useFadeIn((animateRef.value as any).ref, props.loop);
                         // useAnimate(newVal);
@@ -111,7 +156,7 @@ export default create({
             );
         })
 
-        return { animateRef, animateClass, animateLoopClass, animateClasses, elId };
+        return { animateRef, animateClass, animateLoopClass, animateClasses, elId, animateStyle };
     }
 })
 </script>

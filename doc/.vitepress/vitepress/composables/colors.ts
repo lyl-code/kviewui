@@ -1,3 +1,7 @@
+import { colorBuilder } from '@kviewui/color-builder';
+import { isThemeColor } from '@kviewui/utils';
+import { theme as appTheme } from '@kviewui/theme';
+
 // 组件库预设色板名称
 export const colorPresetNames = [{
     name: '浪漫红',
@@ -42,3 +46,32 @@ export const colorPresetNames = [{
     name: '中性灰',
     enName: 'grey',
   }]
+
+/**
+ * 获取主题色色值，如果是主题色变量则直接获取，否则根据颜色工具获取自定义颜色的主题色
+ * @param {string} color 颜色变量
+ * @param {ModeEnum} mode 明亮模式或暗黑模式
+ * - dark 暗黑模式
+ * - light 明亮模式
+ * @param {KuiNamespace.ColorLevel} colorLevel 颜色色阶[0-9]
+ * @returns 
+ */
+export const getThemeColor = (
+  color: string = 'primary',
+  mode: KuiNamespace.ModeEnum = 'light',
+  colorLevel: KuiNamespace.ColorLevel = 5): string => {
+    const theme: KuiNamespace.Theme = appTheme;
+    if (isThemeColor(color)) {
+      return theme.colors[mode][color][colorLevel];
+    }
+
+    if (!color) {
+      return '';
+    }
+
+    return colorBuilder.generate(color, {
+      dark: mode !== 'light',
+      list: true,
+      index: 5
+    })[colorLevel];
+}

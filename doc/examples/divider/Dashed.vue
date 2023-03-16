@@ -1,3 +1,4 @@
 <template>
-  <kui-divider dashed />
+  <kui-divider 
+    dashed />
 </template>

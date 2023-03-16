@@ -32,7 +32,7 @@ import KuiDivider from 'kviewui/src/divider/index.vue';
 <!-- <show-code com-type="divider" com-show-type="dashed" /> -->
 ::: code-group
 
-<<< @/examples/divider/Dashed.vue
+<<< @/examples/divider/Dashed.vue{3}
 
 :::
 
@@ -43,7 +43,7 @@ import KuiDivider from 'kviewui/src/divider/index.vue';
 <!-- <show-code com-type="divider" com-show-type="inset" /> -->
 ::: code-group
 
-<<< @/examples/divider/Inset.vue
+<<< @/examples/divider/Inset.vue{3,5-6,8-10}
 
 :::
 
@@ -54,7 +54,7 @@ import KuiDivider from 'kviewui/src/divider/index.vue';
 <!-- <show-code com-type="divider" com-show-type="direction"/> -->
 ::: code-group
 
-<<< @/examples/divider/Direction.vue
+<<< @/examples/divider/Direction.vue{5,8}
 
 :::
 
@@ -71,12 +71,12 @@ import KuiDivider from 'kviewui/src/divider/index.vue';
 
 ## 内容位置
 
-通过 `text-direction` 属性可以设置内容的位置，支持左边、居中和右边三个位置。
+通过 `text-position` 属性可以设置内容的位置，支持左边、居中和右边三个位置。
 
 <!-- <show-code com-type="divider" com-show-type="text-direction" /> -->
 ::: code-group
 
-<<< @/examples/divider/TextDirection.vue
+<<< @/examples/divider/TextPosition.vue{4,10,16}
 
 :::
 
@@ -87,7 +87,7 @@ import KuiDivider from 'kviewui/src/divider/index.vue';
 <!-- <show-code com-type="divider" com-show-type="min-px" /> -->
 ::: code-group
 
-<<< @/examples/divider/MinPx.vue
+<<< @/examples/divider/MinPx.vue{3}
 
 :::
 
@@ -98,7 +98,7 @@ import KuiDivider from 'kviewui/src/divider/index.vue';
 <!-- <show-code com-type="divider" com-show-type="color-theme" /> -->
 ::: code-group
 
-<<< @/examples/divider/ColorTheme.vue
+<<< @/examples/divider/ColorTheme.vue{4,10}
 
 :::
 

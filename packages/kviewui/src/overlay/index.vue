@@ -1,31 +1,53 @@
 <template>
-    <!-- <template v-if="data.show">
-        
-    </template> -->
-    <kui-animate v-if="data.show" :name="(animateName as KuiNamespace.AnimateTypeEnum)">
-            <view ref="animateRef" class="kui-overlay" :class="[data.classes, customClass]" :style="{
-                ...customStyle
-            }" @tap="onClose">
-                <slot></slot>
-                <view class="kui-flex-1" :class="[blur ? 'blur' : '']" :style="{
-                    position: isWrapper ? 'absolute' : 'fixed',
-                    left: 0,
-                    right: 0,
-                    top: data.top,
-                    bottom: 0,
-                    height: data.height,
-                    backgroundColor: `rgba(0, 0, 0, ${overlayNess})`,
-                    borderRadius: `${data.radiusSize}rpx`,
-                    zIndex: zIndex,
-                }" @tap="onClose">
-                    <view class="kui-flex kui-flex-1" :class="vnodeCenter ? 'kui-justify-center kui-items-center' : ''"
-                        :style="{
-                        }">
-                        <slot name="vnode"></slot>
-                    </view>
+    <kui-animate 
+        v-if="data.show" 
+        :name="(duration === 0 ? 'none' : animateName as KuiNamespace.AnimateTypeEnum)"
+        :duration="duration">
+        <view ref="overlayRef" class="kui-relative" :class="[data.classes, customClass]" :style="{
+            ...customStyle
+        }" @tap="onClose">
+            <slot></slot>
+            <view class="kui-flex-1" :class="[blur ? 'blur' : '']" :style="{
+                position: isWrapper ? 'absolute' : 'fixed',
+                left: 0,
+                right: 0,
+                top: data.top,
+                bottom: 0,
+                height: data.height,
+                backgroundColor: `rgba(0, 0, 0, ${opacity})`,
+                borderRadius: `${data.radiusSize}rpx`,
+                zIndex: zIndex,
+            }" @touchmove.prevent @wheel="onWheel" @touchmove="onMove" @tap="onClose">
+                <view class="kui-flex kui-flex-1" :class="vnodeCenter ? 'kui-justify-center kui-items-center' : ''" :style="{
+                }">
+                    <slot name="vnode"></slot>
                 </view>
             </view>
-        </kui-animate>
+        </view>
+    </kui-animate>
+    <!-- <view ref="overlayRef">
+        <view class="kui-relative" :class="[data.classes, customClass]" :style="{
+            ...customStyle
+        }" v-if="visible" @tap="onClose">
+            <slot></slot>
+            <view class="kui-flex-1" :class="[blur ? 'blur' : '']" :style="{
+                position: isWrapper ? 'absolute' : 'fixed',
+                left: 0,
+                right: 0,
+                top: data.top,
+                bottom: 0,
+                height: data.height,
+                backgroundColor: `rgba(0, 0, 0, ${opacity})`,
+                borderRadius: `${data.radiusSize}rpx`,
+                zIndex: zIndex,
+            }" @touchmove.prevent @wheel="onWheel" @touchmove="onMove" @tap="onClose">
+                <view class="kui-flex kui-flex-1" :class="vnodeCenter ? 'kui-justify-center kui-items-center' : ''" :style="{
+                }">
+                    <slot name="vnode"></slot>
+                </view>
+            </view>
+        </view>
+    </view> -->
 </template>
 
 <script lang="ts">
@@ -80,7 +102,7 @@ export default create({
         // const slotDefault = slots.default;
 
         const { proxy }: any = getCurrentInstance();
-        const overlay = ref(null);
+        const overlayRef = ref(null);
         // const animateRef = ref(null);
         const slots = useSlots();
 
@@ -115,8 +137,26 @@ export default create({
             // data.show = true;
             // data.classes = 'fade-in';
             // animateName.value = 'none';
-            
+
             animateName.value = 'fade-in';
+
+            // #ifdef APP-NVUE
+            const animation = uni.requireNativePlugin('animation');
+
+            nextTick(() => {
+                // useFadeIn((overlayRef.value as any).ref, false);
+                animation.transition((overlayRef.value as any).ref, {
+                    styles: {
+                        opacity: props.visible ? 1 : 0
+                    },
+                    duration: 300,
+                    timingFunction: props.visible ? 'ease-in' : 'ease-out',
+                    delay: 0
+                }, () => {
+
+                })
+            })
+            // #endif
         }
 
         const close = () => {
@@ -128,13 +168,13 @@ export default create({
             // }, 120);
         }
 
-        const onClose = (e: MouseEvent) => {
+        const onClose = (e: TouchEvent) => {
             if (data.isMaskClick) {
                 close();
                 setTimeout(() => {
-                    data.show = false;
+                    // data.show = false;
                     emit('update:visible', false);
-                }, 120);
+                }, props.duration);
             }
 
             emit('click', e);
@@ -142,6 +182,20 @@ export default create({
 
         const changeMaskClick = (v: boolean) => {
             data.isMaskClick = v;
+        }
+
+        const onWheel = (e: WheelEvent) => {
+            if (props.lockScroll) {
+                e.preventDefault();
+            }
+            return true;
+        }
+
+        const onMove = (e: TouchEvent) => {
+            if (props.lockScroll) {
+                e.preventDefault();
+            }
+            return true;
         }
 
         // context.expose({
@@ -171,8 +225,10 @@ export default create({
             close,
             onClose,
             changeMaskClick,
-            overlay,
-            animateName
+            overlayRef,
+            animateName,
+            onWheel,
+            onMove
             // animateRef
         }
     }
@@ -180,41 +236,9 @@ export default create({
 </script>
 
 <style scoped>
-.kui-overlay {
-    position: relative;
-}
-
 /* #ifndef APP-NVUE */
 .blur {
     backdrop-filter: blur(10rpx);
-}
-
-.fade-in {
-    animation: fade-in .3s cubic-bezier(.39, .575, .565, 1.000) both;
-}
-
-.fade-out {
-    animation: fade-out .3s ease-out both;
-}
-
-@keyframes fade-in {
-    0% {
-        opacity: 0
-    }
-
-    100% {
-        opacity: 1
-    }
-}
-
-@keyframes fade-out {
-    0% {
-        opacity: 1
-    }
-
-    100% {
-        opacity: 0
-    }
 }
 
 /* #endif */

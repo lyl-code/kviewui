@@ -84,12 +84,13 @@ import KuiOverlay from 'kviewui/src/overlay/index.vue';
 | 字段 | 说明 | 类型 | 默认值
 |----- | ----- | ----- | -----
 | z-index | 层级 | Number | `99`
-| vnode-center | 富文本内容是否居中显示 | Boolean | `false`
+| vnode-center | 遮罩内容是否居中显示 | Boolean | `false`
 | radius-size | 圆角大小，可选值为 `none` `xs` `sm` `base` `lg` `xl` `max` | String | `none`
 | blur | 是否设置磨砂玻璃效果 | Boolean | `false`
 | visible | 是否显示遮罩 | Boolean | `false`
 | close-on-click-overlay | 单击遮罩是否关闭 | Boolean | `true`
-| overlay-ness | 遮罩透明度 | Number | `0.6`
+| opacity | 遮罩透明度 | Number | `0.6`
+| duration | 动画时长，单位ms | Number | `300`
 | is-wrapper | 是否包裹内容，`区间遮罩`和`磨砂玻璃遮罩`有效 | Boolean | `false`
 | header-height | 页面导航高度，H5环境有效 | Number | `0`
 | lock-scroll | 是否锁定背景滚动 | Boolean | `true`
@@ -117,7 +118,7 @@ import KuiOverlay from 'kviewui/src/overlay/index.vue';
 ### Events
 | 事件名 | 说明 | 回调参数
 | --- | --- | ---
-| click | 点击时触发 | event: MouseEvent
+| click | 点击时触发 | event: TouchEvent
 
 ## 平台兼容性说明
 | 运行平台 | 是否兼容

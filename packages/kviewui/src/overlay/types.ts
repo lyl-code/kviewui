@@ -58,9 +58,16 @@ export const overlayProps = {
 	/**
 	 * 遮罩透明度
 	 */
-	overlayNess: {
+	opacity: {
 		type: Number,
 		default: theme.size.shadeOpenness
+	},
+	/**
+	 * 动画时长，单位ms
+	 */
+	duration: {
+		type: Number,
+		default: 300
 	},
     /**
      * 是否需要包裹内容

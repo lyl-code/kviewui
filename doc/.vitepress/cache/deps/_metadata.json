@@ -1,6 +1,6 @@
 {
   "hash": "b35cf072",
-  "browserHash": "8d1bc836",
+  "browserHash": "ad3366b3",
   "optimized": {
     "vue": {
       "src": "../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
@@ -60,6 +60,12 @@
       "src": "../../../node_modules/@arco-design/web-vue/es/link/style/css.js",
       "file": "@arco-design_web-vue_es_link_style_css__js.js",
       "fileHash": "4cb83591",
+      "needsInterop": false
+    },
+    "@kviewui/color-builder": {
+      "src": "../../../../node_modules/.pnpm/@kviewui+color-builder@1.0.5/node_modules/@kviewui/color-builder/lib/index.esm.js",
+      "file": "@kviewui_color-builder.js",
+      "fileHash": "90dde7bc",
       "needsInterop": false
     }
   },

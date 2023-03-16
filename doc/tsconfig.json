@@ -15,7 +15,7 @@
         "~/*": ["./.vitepress/vitepress/*"],
         "@/demo": ["./examples/*"]
       },
-      "types": ["../packages/kviewui/components"],
+      "types": ["../packages/kviewui/components", "@kviewui/types"],
       "jsx": "preserve"
     },
     "include": ["**/*", ".vitepress/**/*"],

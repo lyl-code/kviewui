@@ -50,6 +50,13 @@ export const dividerProps = {
 		default: false
 	},
 	/**
+	 * @zh 是否启用内容描述形式
+	 */
+	textDescribe: {
+		type: Boolean,
+		default: false
+	},
+	/**
 	 * @zh 描述文本位置
 	 */
 	textPosition: {
@@ -69,6 +76,13 @@ export const dividerProps = {
 	theme: {
 		type: String,
 		default: ''
+	},
+	/**
+	 * @zh 宽度，app-nvue缩进场景和内容描述开启时需要宽度计算
+	 */
+	width: {
+		type: Number,
+		default: 0
 	}
 };
 

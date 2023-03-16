@@ -25,45 +25,59 @@ declare const animationTransition: (ref: Ref, options: KuiNamespace.AnimationTra
  * @description 旋转动画
  * @param {Ref} ref 将要执行的动画元素
  * @param {boolean} loop 是否循环执行
+ * @param {number} duration 动画执行时间，单位ms
+ * @param {number} delay 动画开始执行延迟时间，单位ms
  */
-declare const useSpin: (ref: Ref, loop?: boolean) => Promise<void>;
+declare const useSpin: (ref: Ref, loop?: boolean, duration?: number, delay?: number) => Promise<void>;
 /**
  * 脉搏动画
  * @description 脉搏动画，元素透明度显隐切换
  * @param {Ref} ref 将要执行的动画元素
  * @param {boolean} loop 是否循环执行
+ * @param {number} duration 动画执行时间，单位ms
+ * @param {number} delay 动画开始执行延迟时间，单位ms
  */
-declare const usePulse: (ref: Ref, loop?: boolean) => Promise<void>;
+declare const usePulse: (ref: Ref, loop?: boolean, duration?: number, delay?: number) => Promise<void>;
 /**
  * 上下跳动动画
  * @description 上下跳动动画
  * @param {Ref} ref 将要执行的动画元素
  * @param {boolean} loop 是否循环执行
+ * @param {number} duration 动画执行时间，单位ms
+ * @param {number} delay 动画开始执行延迟时间，单位ms
  */
-declare const useBounce: (ref: Ref, loop?: boolean) => Promise<void>;
+declare const useBounce: (ref: Ref, loop?: boolean, duration?: number, delay?: number) => Promise<void>;
 /**
  * 心跳动画
  * @param {Ref} ref 将要执行的动画元素
  * @param {boolean} loop 是否循环执行
+ * @param {number} duration 动画执行时间，单位ms
+ * @param {number} delay 动画开始执行延迟时间，单位ms
  */
-declare const useHeartbeat: (ref: Ref, loop?: boolean) => Promise<void>;
+declare const useHeartbeat: (ref: Ref, loop?: boolean, duration?: number, delay?: number) => Promise<void>;
 /**
  * 抖动动画
  * @param {Ref} ref 将要执行的动画元素
  * @param {boolean} loop 是否循环执行
+ * @param {number} duration 动画执行时间，单位ms
+ * @param {number} delay 动画开始执行延迟时间，单位ms
  */
-declare const useShake: (ref: Ref, loop?: boolean) => Promise<void>;
+declare const useShake: (ref: Ref, loop?: boolean, duration?: number, delay?: number) => Promise<void>;
 /**
  * 渐显动画
  * @param {Ref} ref 将要执行的动画元素
  * @param {boolean} loop 是否循环执行
+ * @param {number} duration 动画执行时间，单位ms
+ * @param {number} delay 动画开始执行时间，单位ms
  */
-declare const useFadeIn: (ref: Ref, loop?: boolean) => Promise<void>;
+declare const useFadeIn: (ref: Ref, loop?: boolean, duration?: number, delay?: number) => Promise<void>;
 /**
  * 渐隐动画
  * @param {Ref} ref 将要执行的动画元素
  * @param {boolean} loop 是否循环执行
+ * @param {number} duration 动画执行时间，单位ms
+ * @param {number} delay 动画开始执行延迟时间，单位ms
  */
-declare const useFadeOut: (ref: Ref, loop?: boolean) => Promise<void>;
+declare const useFadeOut: (ref: Ref, loop?: boolean, duration?: number, delay?: number) => Promise<void>;
 
 export { animationTransition, useBounce, useFadeIn, useFadeOut, useHeartbeat, usePulse, useShake, useSpin };

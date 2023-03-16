@@ -6,7 +6,8 @@
         "resolveJsonModule": true,
         "types": [
             "@dcloudio/types",
-            "@kviewui/types"
+            "@kviewui/types",
+            "node"
         ]
     },
     "include": ["src/**/*.ts", "src/**/*.vue", "types/*.d.ts", "./*.ts", "*.d.ts"]

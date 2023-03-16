@@ -16,121 +16,119 @@ var animationTransition = (ref, options, duration = 0, delay = 0, needLayout = f
     });
   });
 };
-var animationTransitionSpin = async (ref, deg, duration) => {
+var animationTransitionSpin = async (ref, deg, duration, delay) => {
   return await animationTransition(ref, {
     transform: `rotate(${deg})`
-  }, duration, 0, false, "linear");
+  }, duration, delay, false, "linear");
 };
-var useSpin = async (ref, loop = false) => {
+var useSpin = async (ref, loop = false, duration = 46e3, delay = 0) => {
   let tasks = [
-    () => animationTransitionSpin(ref, 0, 0),
-    () => animationTransitionSpin(ref, 360, 46e3)
+    () => animationTransitionSpin(ref, 0, 0, delay),
+    () => animationTransitionSpin(ref, 360, duration, delay)
   ];
   useTaskReduce(tasks).then(() => {
     if (loop)
-      useSpin(ref, loop);
+      useSpin(ref, loop, duration, delay);
   });
 };
-var animationTransitionPulse = async (ref, opacity) => {
+var animationTransitionPulse = async (ref, opacity, duration, delay) => {
   return await animationTransition(ref, {
     opacity
-  }, 1e3, 0, false, "cubic-bezier(0.4, 0, 0.6, 1)");
+  }, duration, delay, false, "cubic-bezier(0.4, 0, 0.6, 1)");
 };
-var usePulse = async (ref, loop = false) => {
+var usePulse = async (ref, loop = false, duration = 1e3, delay = 0) => {
   let tasks = [
-    () => animationTransitionPulse(ref, 0.5),
-    () => animationTransitionPulse(ref, 1)
+    () => animationTransitionPulse(ref, 0.5, duration, delay),
+    () => animationTransitionPulse(ref, 1, duration, delay)
   ];
   useTaskReduce(tasks).then(() => {
     if (loop)
-      usePulse(ref, loop);
+      usePulse(ref, loop, duration, delay);
   });
 };
-var animationTransitionBounce = async (ref, y, timingFunction) => {
+var animationTransitionBounce = async (ref, y, timingFunction, duration, delay) => {
   return await animationTransition(ref, {
     transform: `translateY(${y})`
-  }, 500, 0, false, timingFunction);
+  }, duration, delay, false, timingFunction);
 };
-var useBounce = async (ref, loop = false) => {
+var useBounce = async (ref, loop = false, duration = 500, delay = 0) => {
   let tasks = [
-    () => animationTransitionBounce(ref, "-25%", "cubic-bezier(0.8, 0, 1, 1)"),
-    () => animationTransitionBounce(ref, "0", "cubic-bezier(0, 0, 0.2, 1)")
+    () => animationTransitionBounce(ref, "-25%", "cubic-bezier(0.8, 0, 1, 1)", duration, delay),
+    () => animationTransitionBounce(ref, "0", "cubic-bezier(0, 0, 0.2, 1)", duration, delay)
   ];
   useTaskReduce(tasks).then(() => {
     if (loop)
-      useBounce(ref, loop);
+      useBounce(ref, loop, duration, delay);
   });
 };
-var animationTransitionHeartbeat = async (ref, scale) => {
+var animationTransitionHeartbeat = async (ref, scale, duration, delay) => {
   return await animationTransition(ref, {
     transform: `scale(${scale})`
-  }, 500, 0, false);
+  }, duration, delay, false);
 };
-var useHeartbeat = async (ref, loop = false) => {
+var useHeartbeat = async (ref, loop = false, duration = 500, delay = 0) => {
   let tasks = [
-    () => animationTransitionHeartbeat(ref, 1.1),
-    () => animationTransitionHeartbeat(ref, 1)
+    () => animationTransitionHeartbeat(ref, 1.1, duration, delay),
+    () => animationTransitionHeartbeat(ref, 1, duration, delay)
   ];
   useTaskReduce(tasks).then(() => {
     if (loop)
-      useHeartbeat(ref, loop);
+      useHeartbeat(ref, loop, duration, delay);
   });
 };
-var animationTransitionShake = async (ref, x) => {
+var animationTransitionShake = async (ref, x, duration, delay) => {
   return await animationTransition(ref, {
     transform: `translateX(${x})`
-  }, 50, 0, false, "ease-out");
+  }, duration, delay, false, "ease-out");
 };
-var useShake = async (ref, loop = false) => {
+var useShake = async (ref, loop = false, duration = 50, delay = 0) => {
   let tasks = [
-    () => animationTransitionShake(ref, "-8px"),
-    () => animationTransitionShake(ref, "7px"),
-    () => animationTransitionShake(ref, "-6px"),
-    () => animationTransitionShake(ref, "5px"),
-    () => animationTransitionShake(ref, "-4px"),
-    () => animationTransitionShake(ref, "3px"),
-    () => animationTransitionShake(ref, "-2px"),
-    () => animationTransitionShake(ref, "1px")
+    () => animationTransitionShake(ref, "-8px", duration, delay),
+    () => animationTransitionShake(ref, "7px", duration, delay),
+    () => animationTransitionShake(ref, "-6px", duration, delay),
+    () => animationTransitionShake(ref, "5px", duration, delay),
+    () => animationTransitionShake(ref, "-4px", duration, delay),
+    () => animationTransitionShake(ref, "3px", duration, delay),
+    () => animationTransitionShake(ref, "-2px", duration, delay),
+    () => animationTransitionShake(ref, "1px", duration, delay)
   ];
   let doTask = useTaskReduce(tasks);
   doTask.then(() => {
     if (loop)
       setTimeout(() => {
-        useShake(ref, loop);
+        useShake(ref, loop, duration, delay);
       }, 200);
   });
 };
-var animationTransitionFadeIn = async (ref, opacity) => {
+var animationTransitionFadeIn = async (ref, opacity, duration, delay) => {
   return await animationTransition(ref, {
     opacity
-  }, 2e3, 0, false, "cubic-bezier(.39, .575, .565, 1.000)");
+  }, duration, delay, false, "ease-in");
 };
-var useFadeIn = async (ref, loop = false) => {
+var useFadeIn = async (ref, loop = false, duration = 2e3, delay = 0) => {
   let tasks = [
-    () => animationTransitionFadeIn(ref, 0),
-    () => animationTransitionFadeIn(ref, 1)
+    () => animationTransitionFadeIn(ref, 1, duration, delay)
   ];
   useTaskReduce(tasks).then(() => {
     if (loop)
       setTimeout(() => {
-        useFadeIn(ref, loop);
+        useFadeIn(ref, loop, duration, delay);
       });
   });
 };
-var animationTransitionFadeOut = async (ref, opacity) => {
+var animationTransitionFadeOut = async (ref, opacity, duration, delay) => {
   return await animationTransition(ref, {
     opacity
-  }, 300, 0, false, "ease-out");
+  }, duration, delay, false, "ease-out");
 };
-var useFadeOut = async (ref, loop = false) => {
+var useFadeOut = async (ref, loop = false, duration = 300, delay = 0) => {
   let tasks = [
-    () => animationTransitionFadeOut(ref, 1),
-    () => animationTransitionFadeOut(ref, 0)
+    () => animationTransitionFadeOut(ref, 0, duration, delay)
   ];
   useTaskReduce(tasks).then(() => {
     if (loop)
       setTimeout(() => {
-        useFadeOut(ref, loop);
+        useFadeOut(ref, loop, duration, delay);
       });
   });
 };

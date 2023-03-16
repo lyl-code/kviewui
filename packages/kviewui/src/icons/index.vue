@@ -2,14 +2,13 @@
   <!-- #ifndef APP-NVUE -->
   <text
     :style="{ ...iconStyle, ...customStyle }"
-    :class="[customClassName, `${customPrefix}-${name}`, customClass]"
+    :class="[customClassName || 'kui-icons', `${customPrefix || 'kui-icon'}-${name}`, customClass]"
   />
   <!-- #endif -->
   <!-- #ifdef APP-NVUE -->
   <text
     :id="elId"
     ref="iconRef"
-    class="kui-icons"
     :style="{ ...iconStyle, ...customStyle }"
     :class="[customClassName, customClass]"
     >{{ unicode }}</text
@@ -44,6 +43,9 @@ export default create({
     const iconStyle = computed(() => {
       const style: CSSProperties = reactive({});
 
+      style.fontFamily = props.customFontFamily || 'kui-icons';
+      style.textDecoration = 'none';
+
       style.color = getThemeColor(props.color, props.mode, props.colorLevel);
 
       style.fontSize = getFontSize(props.size);
@@ -62,7 +64,7 @@ export default create({
       // return `\\u${unicode}`;
     };
 
-    const code = iconCode.glyphs.find((v) => v.font_class === props.name);
+    const code = iconCode.glyphs.find((v: { font_class: string; }) => v.font_class === props.name);
 
     const unicode = computed(() => {
       if (props.unicode) {
@@ -79,7 +81,7 @@ export default create({
       const domModule = uni.requireNativePlugin("dom");
       const iconTTf = props.iconUrl || iconUrl;
       domModule.addRule("fontFace", {
-        fontFamily: "kui-icons",
+        fontFamily: props.customFontFamily || "kui-icons",
         src: "url('" + iconTTf + "')",
       });
       // #endif
@@ -105,9 +107,9 @@ export default create({
 } */
 
 /* #endif */
-.kui-icons {
+/* .kui-icons {
   font-family: kui-icons;
   text-decoration: none;
-  /* text-align: center; */
-}
+  text-align: center;
+} */
 </style>

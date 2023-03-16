@@ -3,11 +3,11 @@
  * @param e
  */
 export const getUnitByUnit = (e: any): String => {
-	if (e.endsWith('px')) {
-		return 'px';
-	}
 	if  (e.endsWith('rpx')) {
 		return 'rpx';
+	}
+    if (e.endsWith('px')) {
+		return 'px';
 	}
 	if (e.endsWith('rem')) {
 		return 'rem';
@@ -34,5 +34,5 @@ export const getUnitByUnit = (e: any): String => {
  */
 export const getNumberByUnit = (e: any): any => {
 	const arr = e.split(getUnitByUnit(e));
-	return arr[0];
+	return arr[0] || 0;
 }
