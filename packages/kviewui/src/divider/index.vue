@@ -12,9 +12,8 @@
   <template v-else>
     <view class="kui-flex kui-items-center kui-flex-grow-0" :class="[customClass]" :style="{
         ...customStyle,
-        flexGrow: 1
     }">
-      <view class="kui-flex kui-divider kui-w-1-2" :style="{
+      <view class="kui-flex kui-divider" :style="{
         ...rootStyle,
         ...describeDividerStyle('left')
       }" :class="[
@@ -23,10 +22,9 @@
       <view>
         <slot />
       </view>
-      <view class="kui-flex kui-divider kui-w-1-2" :style="{
+      <view class="kui-flex kui-divider" :style="{
         ...rootStyle,
         ...describeDividerStyle('right'),
-        flexGrow: 1
       }" :class="[
   minPx ? 'kui-divider-minpx' : '',
 ]" />
@@ -137,12 +135,29 @@ export default create({
 
       let widthPercent = 1/2;
 
+      if (props.textPosition === 'left') {
+        if (p === 'left') {
+          widthPercent = 3/20;
+        } else {
+          widthPercent = 17/20;
+        }
+      }
+
+      if (props.textPosition === 'right') {
+        if (p === 'left') {
+          widthPercent = 17 / 20;
+        } else {
+          widthPercent = 3 / 20;
+        }
+      }
+
       // #ifndef APP-NVUE
-      style.width = widthPercent;
+      style.width = `${widthPercent * 100}%`;
       // #endif
 
       // #ifdef APP-NVUE
       style.width = `${props.width * widthPercent}rpx`;
+      console.log(`${style.width}`);
       // #endif
 
       return style;
@@ -173,8 +188,8 @@ export default create({
   -ms-flex-positive: 0;
   -webkit-box-align: stretch !important;
   -ms-flex-align: stretch !important;
-  /* #endif */
   flex-grow: 0 !important;
+  /* #endif */
   align-items: stretch !important;
 }
 
