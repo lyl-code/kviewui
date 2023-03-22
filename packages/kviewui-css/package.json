@@ -30,7 +30,7 @@
   },
   "homepage": "https://cn.kviewui.com",
   "bugs": {
-    "url": "https://github.com/kviewui/kviewui-css/issues"
+    "url": "https://github.com/kviewui/kviewui/issues"
   },
   "browerslist": [
     "> 1%",
