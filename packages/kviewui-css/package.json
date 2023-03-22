@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kviewui/kviewui-css"
+    "url": "git+https://github.com/kviewui/kviewui/tree/main/packages/kviewui-css"
   },
   "dependencies": {
     "@kviewui/color-builder": "^1.0.5"
