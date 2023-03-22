@@ -15115,23 +15115,11 @@ var getNumberByUnit = (e) => {
   return arr[0] || 0;
 };
 
-// src/use/provide.ts
-var useProvide = (config3 = {}) => {
-};
-
-// src/use/config.ts
-var useConfig = (config3 = {}) => {
-  uni.setStorageSync("$kConfig", config3);
-};
-var useInject = () => {
-  return uni.getStorageSync("$kConfig");
-};
-
 // src/image/index.ts
 var configInfo = {
   debug: false
 };
-var config = _nullishCoalesce(useInject(), () => ( configInfo));
+var config = configInfo;
 var getImageInfo = (src) => {
   return new Promise((resolve2, reject) => {
     uni.getImageInfo({
@@ -15198,7 +15186,7 @@ var isImage = (url) => {
 var configInfo2 = {
   debug: true
 };
-var config2 = _nullishCoalesce(useInject(), () => ( configInfo2));
+var config2 = configInfo2;
 var getElId = (prefix = "KUI_") => {
   const elId = `${prefix}${Math.ceil((/* @__PURE__ */ new Date()).getTime() * 1e6).toString(36)}`;
   return elId;
@@ -15351,7 +15339,4 @@ var setCliboardData = (data, showToast2 = true) => {
 
 
 
-
-
-
-exports.compress = compress; exports.createComponent = createComponent; exports.fileToUrl = fileToUrl; exports.getElId = getElId; exports.getFontSize = getFontSize; exports.getImageInfo = getImageInfo; exports.getNumberByUnit = getNumberByUnit; exports.getUnitByUnit = getUnitByUnit; exports.getUnitSize = getUnitSize; exports.hideLoading = hideLoading; exports.hideToast = hideToast; exports.isArray = isArray2; exports.isBoolean = isBoolean2; exports.isImage = isImage; exports.isNumber = isNumber; exports.isObject = isObject2; exports.isString = isString2; exports.isThemeColor = isThemeColor; exports.setCliboardData = setCliboardData; exports.showLoading = showLoading; exports.showModal = showModal; exports.showToast = showToast; exports.themeColors = themeColors; exports.useConfig = useConfig; exports.useInject = useInject; exports.useKviewuiRect = useKviewuiRect; exports.useProvide = useProvide; exports.useThrottle = useThrottle; exports.withInstall = withInstall;
+exports.compress = compress; exports.createComponent = createComponent; exports.fileToUrl = fileToUrl; exports.getElId = getElId; exports.getFontSize = getFontSize; exports.getImageInfo = getImageInfo; exports.getNumberByUnit = getNumberByUnit; exports.getUnitByUnit = getUnitByUnit; exports.getUnitSize = getUnitSize; exports.hideLoading = hideLoading; exports.hideToast = hideToast; exports.isArray = isArray2; exports.isBoolean = isBoolean2; exports.isImage = isImage; exports.isNumber = isNumber; exports.isObject = isObject2; exports.isString = isString2; exports.isThemeColor = isThemeColor; exports.setCliboardData = setCliboardData; exports.showLoading = showLoading; exports.showModal = showModal; exports.showToast = showToast; exports.themeColors = themeColors; exports.useKviewuiRect = useKviewuiRect; exports.useThrottle = useThrottle; exports.withInstall = withInstall;

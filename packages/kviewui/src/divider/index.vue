@@ -1,33 +1,46 @@
 <template>
-  <view v-if="!textDescribe" class="kui-flex kui-divider" :style="{
-    ...rootStyle,
-    ...customStyle,
-  }" :class="[
-  state.useDefaultSlots ? 'kui-divider1' : '',
-  minPx ? 'kui-divider-minpx' : '',
-  customClass,
-]">
+  <view
+    v-if="!textDescribe"
+    class="kui-flex kui-divider"
+    :style="{
+      ...rootStyle,
+      ...customStyle,
+    }"
+    :class="[
+      state.useDefaultSlots ? 'kui-divider1' : '',
+      minPx ? 'kui-divider-minpx' : '',
+      customClass,
+    ]"
+  >
     <slot />
   </view>
   <template v-else>
-    <view class="kui-flex kui-items-center kui-flex-grow-0" :class="[customClass]" :style="{
+    <view
+      class="kui-flex kui-items-center kui-flex-grow-0"
+      :class="[customClass]"
+      :style="{
         ...customStyle,
-    }">
-      <view class="kui-flex kui-divider" :style="{
-        ...rootStyle,
-        ...describeDividerStyle('left')
-      }" :class="[
-  minPx ? 'kui-divider-minpx' : '',
-]" />
+      }"
+    >
+      <view
+        class="kui-flex kui-divider"
+        :style="{
+          ...rootStyle,
+          ...describeDividerStyle('left'),
+        }"
+        :class="[minPx ? 'kui-divider-minpx' : '']"
+      />
       <view>
         <slot />
       </view>
-      <view class="kui-flex kui-divider" :style="{
-        ...rootStyle,
-        ...describeDividerStyle('right'),
-      }" :class="[
-  minPx ? 'kui-divider-minpx' : '',
-]" />
+      <view
+        class="kui-flex kui-divider"
+        :style="{
+          ...rootStyle,
+          ...describeDividerStyle('right'),
+        }"
+        :class="[minPx ? 'kui-divider-minpx' : '']"
+      />
     </view>
   </template>
 </template>
@@ -37,6 +50,7 @@ import { reactive, useSlots, CSSProperties, computed } from "vue";
 
 import { dividerProps } from "./types";
 import { createComponent, getNumberByUnit } from "@kviewui/utils";
+import { getThemeColor } from "../shared/tools";
 import { theme } from "@kviewui/theme";
 
 const { create } = createComponent("divider");
@@ -59,7 +73,7 @@ export default create({
       style.position = "relative";
       style.height = 0;
       style.border = "none";
-      const borderWidth: string = props.minPx ? '0.5rpx' : "1px";
+      const borderWidth: string = props.minPx ? "0.5rpx" : "1px";
       let borderStyle: string = "solid";
       let borderColor: string = theme.colors["light"]["grey"][3];
       let inset: string = props.inset ? props.inset : "";
@@ -70,7 +84,8 @@ export default create({
       // borderColor = '#909ca4';
       // 自定义颜色
       borderColor = props.color ? props.color : borderColor;
-      borderColor = props.theme ? theme.colors["light"][props.theme][5] : borderColor;
+      // borderColor = props.theme ? theme.colors["light"][props.theme][5] : borderColor;
+      borderColor = getThemeColor(props.color, props.mode, props.colorLevel);
       style.borderTop = `${borderWidth} ${borderStyle} ${borderColor}`;
       style.margin = "16rpx 0";
       if (props.margin) {
@@ -133,18 +148,18 @@ export default create({
     const describeDividerStyle = (p: string) => {
       const style: CSSProperties = reactive({});
 
-      let widthPercent = 1/2;
+      let widthPercent = 1 / 2;
 
-      if (props.textPosition === 'left') {
-        if (p === 'left') {
-          widthPercent = 3/20;
+      if (props.textPosition === "left") {
+        if (p === "left") {
+          widthPercent = 3 / 20;
         } else {
-          widthPercent = 17/20;
+          widthPercent = 17 / 20;
         }
       }
 
-      if (props.textPosition === 'right') {
-        if (p === 'left') {
+      if (props.textPosition === "right") {
+        if (p === "left") {
           widthPercent = 17 / 20;
         } else {
           widthPercent = 3 / 20;
@@ -166,13 +181,13 @@ export default create({
     return {
       rootStyle,
       state,
-      describeDividerStyle
+      describeDividerStyle,
     };
   },
 });
 </script>
 
-<style lang="less">
+<style>
 .kui-divider {
   display: flex;
   /* #ifndef APP-NVUE */
@@ -192,29 +207,4 @@ export default create({
   /* #endif */
   align-items: stretch !important;
 }
-
-// .kui-divider {
-//   display: flex;
-//   align-items: center;
-//   font-size: 28rpx;
-//   margin: 16rpx 0;
-//   /* #ifndef APP-NVUE */
-//   &::before,
-//   &::after {
-//     content: "";
-//     border-top: 4px solid var(--border-color);
-//     border-width: 1rpx 0 0;
-//     height: 0px;
-//     flex: 1;
-//   }
-//   &::before {
-//     margin-right: 32rpx;
-//     max-width: var(--border-left-max-width);
-//   }
-//   &::after {
-//     margin-left: 32rpx;
-//     max-width: var(--border-right-max-width);
-//   }
-//   /* #endif */
-// }
 </style>

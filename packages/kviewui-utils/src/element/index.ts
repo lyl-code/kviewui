@@ -1,11 +1,10 @@
 import { Ref, unref, getCurrentInstance } from 'vue';
-import { useInject } from '../use';
 
 const configInfo = {
 	debug: true
 };
 
-const config = useInject() ?? configInfo;
+const config = configInfo;
 
 const isWindow = (v: unknown): boolean => {
 	return v === window;

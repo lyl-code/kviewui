@@ -4,7 +4,7 @@ export * from './src/create';
 export * from './src/unit';
 export * from './src/image';
 export * from './src/element';
-export * from './src/use';
+// export * from './src/use';
 export * from './src/is';
 export * from './src/size';
 export * from './src/prompt';

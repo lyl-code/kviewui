@@ -91,14 +91,19 @@ import KuiDivider from 'kviewui/src/divider/index.vue';
 
 :::
 
-## 自定义颜色和主题
+## 自定义颜色
 
-通过 `color` 属性可以设置分割线颜色，通过 `theme` 属性可以设置分割线主题色。
+通过 `color` 属性可以设置分割线颜色。
+
+::: warning 注意
++ 基于组件库出色的主题设计以及自动获取自定义颜色主题能力，所以组件库所有组件的颜色类属性都支持自定义颜色、组件库内置颜色和组件库内置主题。参考 [颜色](/guide/palette) 和 [主题](/guide/token#主题色)
++ 基于组件库特色的主题颜色色阶设计，所以组件库所有组件的颜色类属性都支持对应的色阶设置。参考 [颜色色阶](/guide/palette#颜色色阶)
+:::
 
 <!-- <show-code com-type="divider" com-show-type="color-theme" /> -->
 ::: code-group
 
-<<< @/examples/divider/ColorTheme.vue{4,10}
+<<< @/examples/divider/ColorTheme.vue{4}
 
 :::
 

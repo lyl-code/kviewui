@@ -21,7 +21,7 @@ import KuiGrid from 'kviewui/src/icons/index.vue';
 <!-- <show-code com-type="grid" com-show-type="base" /> -->
 ::: code-group
 
-<<< @/examples/grid/Base.vue
+<<< @/examples/grid/Base.vue{5-6}
 
 :::
 
@@ -30,7 +30,7 @@ import KuiGrid from 'kviewui/src/icons/index.vue';
 
 ::: code-group
 
-<<< @/examples/grid/Square.vue
+<<< @/examples/grid/Square.vue{5}
 
 :::
 

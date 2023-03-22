@@ -58,6 +58,7 @@
     "@kviewui/animate": "workspace:^1.0.0",
     "@kviewui/theme": "workspace:^1.0.0",
     "@kviewui/types": "workspace:1.0.0",
+    "@kviewui/use": "^1.0.0",
     "@kviewui/utils": "workspace:1.0.0",
     "csstype": "^3.1.1",
     "pinia": "^2.0.30",

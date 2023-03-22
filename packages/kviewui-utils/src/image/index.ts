@@ -1,10 +1,8 @@
-import { useInject } from '../use';
-
 let configInfo = {
 	debug: false
 };
 
-const config = useInject() ?? configInfo;
+const config = configInfo;
 
 /**
  * @zh 获取图片信息

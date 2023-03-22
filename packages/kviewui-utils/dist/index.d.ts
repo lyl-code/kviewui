@@ -79,11 +79,6 @@ declare const getElId: (prefix?: string) => string;
  */
 declare const useKviewuiRect: (eleRef: (Element | Window | any) | Ref<Element | Window | any>, eleId: string | undefined, proxy: any) => any;
 
-declare const useProvide: (config?: {}) => void;
-
-declare const useConfig: (config?: {}) => void;
-declare const useInject: () => any;
-
 /**
  * 判断是否为数字
  * @param {any} e 校验内容
@@ -193,4 +188,4 @@ declare const isThemeColor: (color: string) => boolean;
  */
 declare const setCliboardData: (data: string, showToast?: boolean) => Promise<any>;
 
-export { SFCWithInstall, compress, createComponent, fileToUrl, getElId, getFontSize, getImageInfo, getNumberByUnit, getUnitByUnit, getUnitSize, hideLoading, hideToast, isArray, isBoolean, isImage, isNumber, isObject, isString, isThemeColor, setCliboardData, showLoading, showModal, showToast, themeColors, useConfig, useInject, useKviewuiRect, useProvide, useThrottle, withInstall };
+export { SFCWithInstall, compress, createComponent, fileToUrl, getElId, getFontSize, getImageInfo, getNumberByUnit, getUnitByUnit, getUnitSize, hideLoading, hideToast, isArray, isBoolean, isImage, isNumber, isObject, isString, isThemeColor, setCliboardData, showLoading, showModal, showToast, themeColors, useKviewuiRect, useThrottle, withInstall };

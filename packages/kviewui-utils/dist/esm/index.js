@@ -15115,23 +15115,11 @@ var getNumberByUnit = (e) => {
   return arr[0] || 0;
 };
 
-// src/use/provide.ts
-var useProvide = (config3 = {}) => {
-};
-
-// src/use/config.ts
-var useConfig = (config3 = {}) => {
-  uni.setStorageSync("$kConfig", config3);
-};
-var useInject = () => {
-  return uni.getStorageSync("$kConfig");
-};
-
 // src/image/index.ts
 var configInfo = {
   debug: false
 };
-var config = useInject() ?? configInfo;
+var config = configInfo;
 var getImageInfo = (src) => {
   return new Promise((resolve2, reject) => {
     uni.getImageInfo({
@@ -15198,7 +15186,7 @@ var isImage = (url) => {
 var configInfo2 = {
   debug: true
 };
-var config2 = useInject() ?? configInfo2;
+var config2 = configInfo2;
 var getElId = (prefix = "KUI_") => {
   const elId = `${prefix}${Math.ceil((/* @__PURE__ */ new Date()).getTime() * 1e6).toString(36)}`;
   return elId;
@@ -15348,10 +15336,7 @@ export {
   showModal,
   showToast,
   themeColors,
-  useConfig,
-  useInject,
   useKviewuiRect,
-  useProvide,
   useThrottle,
   withInstall
 };

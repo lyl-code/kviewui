@@ -64,18 +64,18 @@ export const dividerProps = {
 		default: 'center' as TextPositionEnum
 	},
 	/**
-	 * @zh 分割线颜色
+	 * @zh 分割线颜色，支持内置颜色，自定义颜色和内置主题
 	 */
 	color: {
 		type: String,
-		default: ''
+		default: 'grey'
 	},
 	/**
-	 * @zh theme 主题
+	 * @zh 分割线颜色色阶
 	 */
-	theme: {
-		type: String,
-		default: ''
+	colorLevel: {
+		type: Number as PropType<KuiNamespace.ColorLevel>,
+		default: 5
 	},
 	/**
 	 * @zh 宽度，app-nvue缩进场景和内容描述开启时需要宽度计算
