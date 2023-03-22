@@ -11,7 +11,10 @@
     "generate:animate:css": "cd packages/kviewui-animate/scripts && gulp less && node --max_old_space_size=4096 appendFile.js",
     "build:animate:ts": "cd packages/kviewui-animate && tsup --config ./tsup.config.ts",
     "build:animate": "npm run generate:animate:css && npm run build:animate:ts",
-    "build:use": "cd packages/kviewui-use && tsup --config ./tsup.config.ts"
+    "build:use": "cd packages/kviewui-use && tsup --config ./tsup.config.ts",
+    "build:css:less": "cd packages/kviewui-css/src/css && lessc bg-gradient-t.less > ../../dist/bg-gradient-t.css && lessc bg-gradient-tr.less > ../../dist/bg-gradient-tr.css && lessc bg-gradient-r.less > ../../dist/bg-gradient-r.css && lessc bg-gradient-br.less > ../../dist/bg-gradient-br.css && lessc bg-gradient-b.less > ../../dist/bg-gradient-b.css && lessc bg-gradient-bl.less > ../../dist/bg-gradient-bl.css && lessc bg-gradient-l.less > ../../dist/bg-gradient-l.css && lessc bg-gradient-tl.less > ../../dist/bg-gradient-tl.css",
+    "generate:css:css": "cd packages/kviewui-css/scripts && gulp less && node --max_old_space_size=4096 appendFile.js",
+    "build:css": "npm run build:css:less && npm run generate:css:css"
   },
   "keywords": [],
   "author": "",
