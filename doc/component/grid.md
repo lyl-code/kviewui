@@ -59,7 +59,7 @@ import KuiGrid from 'kviewui/src/icons/index.vue';
 <!-- <show-code com-type="grid" com-show-type="columns" /> -->
 ::: code-group
 
-<<< @/examples/grid/Columns.vue
+<<< @/examples/grid/Columns.vue{4}
 
 :::
 
@@ -70,7 +70,7 @@ import KuiGrid from 'kviewui/src/icons/index.vue';
 <!-- <show-code com-type="grid" com-show-type="gutter" /> -->
 ::: code-group
 
-<<< @/examples/grid/Gutter.vue
+<<< @/examples/grid/Gutter.vue{5}
 
 :::
 
@@ -81,7 +81,7 @@ import KuiGrid from 'kviewui/src/icons/index.vue';
 <!-- <show-code com-type="grid" com-show-type="reverse" /> -->
 ::: code-group
 
-<<< @/examples/grid/Reverse.vue
+<<< @/examples/grid/Reverse.vue{5}
 
 :::
 
@@ -92,7 +92,7 @@ import KuiGrid from 'kviewui/src/icons/index.vue';
 <!-- <show-code com-type="grid" com-show-type="direction" /> -->
 ::: code-group
 
-<<< @/examples/grid/Direction.vue
+<<< @/examples/grid/Direction.vue{5}
 
 :::
 
@@ -103,7 +103,7 @@ import KuiGrid from 'kviewui/src/icons/index.vue';
 <!-- <show-code com-type="grid" com-show-type="icon-color-size" /> -->
 ::: code-group
 
-<<< @/examples/grid/ColorSize.vue
+<<< @/examples/grid/ColorSize.vue{5-8}
 
 :::
 
@@ -123,7 +123,7 @@ import KuiGrid from 'kviewui/src/icons/index.vue';
 
 ::: code-group
 
-<<< @/examples/grid/Clickable.vue
+<<< @/examples/grid/Clickable.vue{3,4}
 
 :::
 
@@ -133,7 +133,7 @@ import KuiGrid from 'kviewui/src/icons/index.vue';
 | 参数          | 说明                                      | 类型                    | 默认值      |
 |---------------|------------------------------------------|------------------------|------------|
 | columns    | 列数                                     | number         | `4`        |
-| icon-size     | 图标大小，参考 <a href="/components/icon">Icon 图标</a> 组件          | number        | `56`     |
+| icon-size     | 图标大小，参考 <a href="/components/icons">Icons 图标</a> 组件          | number        | `56`     |
 | icon-color    | 图标颜色                                  | string                 | -          |
 | gutter        | 格子之间的间距，默认单位为`rpx`               | number        | `0`        |
 | reverse        | 内容反向                               | boolean                | `false`     |
@@ -152,15 +152,15 @@ import KuiGrid from 'kviewui/src/icons/index.vue';
 | 参数                  | 说明                                                                                     | 类型               | 默认值      |
 |----------------------|-----------------------------------------------------------------------------------------|--------------------|------------|
 | text                 | 文字                                                                                     | string             | -          |
-| icon                 | [图标名称](/components/icon)                                                             | string             | -          |
+| icon                 | [图标名称](/components/icons#api)                                                             | string             | -          |
 | icon-size            | 图标大小                                                | number   | `56`     |
 | icon-color           | 图标颜色                                                                                  | string            | -           |
 | id           | 唯一标识                                                                                  | string            | -           |
 | content-margin           | 内容外间距                                                                                  | string            | -           |
 | radius-size           | 圆角大小，可选值为 `none` `xs` `sm` `base` `lg` `xl` `max`                        | string            | `none`           |
 | background-color           | 背景颜色                                                                                  | string            | -           |
-| background-color-level           | 背景颜色色阶，可参考 <a href="/guide/theme">主题</a>                                 | string            | -           |
-| mode`通用属性`      | 页面模式，可选值为 `light` `dark`                   | String  | `light`         |
+| background-color-level           | 背景颜色色阶，可参考 <a href="/guide/palette#颜色色阶">颜色色阶</a>                                 | string            | -           |
+| mode [`公共属性`](#)      | 页面模式，见 [组件公共属性](/guide/component#组件公共属性)                   | String  | `light`         |
 
 ### RadiusSize 有效值
 | 值 | 说明 |
@@ -172,12 +172,6 @@ import KuiGrid from 'kviewui/src/icons/index.vue';
 | lg | `40rpx` |
 | xl | `50rpx` |
 | max | `9999rpx` |
-
-### Mode 有效值
-| 值 | 说明 |
-|----|------|
-| light | 明亮模式 |
-| dark | 暗黑模式 |
 
 ### GridItem Slots
 
