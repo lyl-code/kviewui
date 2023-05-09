@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress';
 import algolia from './config/algolia';
+import local from './config/search/local';
 import socialLinks from './config/links';
 import { sidebars } from './config/sidebar';
 
@@ -48,8 +49,13 @@ export default defineConfig({
             pattern: 'https://gitcode.net/kviewui/kviewui/edit/master/docs/:path',
             text: '为此页提供修改建议'
         },
-        algolia,
         socialLinks,
         sidebar: sidebars,
+        search: {
+            provider: 'local',
+            options: {
+                ...local
+            }
+        }
     }
 });

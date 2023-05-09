@@ -18,7 +18,7 @@ const isWindow = (v: unknown): boolean => {
 export const getElId = (prefix: string = 'KUI_'): string => {
 	// 随机生成元素ID
 	const elId = `${prefix}${Math.ceil(new Date().getTime() * 10e5).toString(36)}`;
-	
+
 	return elId;
 }
 
@@ -35,10 +35,14 @@ export const getElId = (prefix: string = 'KUI_'): string => {
  * 	right 节点右边界坐标
  * 	bottom 节点下边界坐标
  */
-export const useKviewuiRect = (eleRef: (Element | Window | any) | Ref<Element | Window | any>, eleId: string = '', proxy: any): any => {
+export const useKviewuiRect = (
+	eleRef: (Element | Window | any) | Ref<Element | Window | any>,
+	eleId: string = '',
+	proxy: any
+): any => {
 	let element = unref(eleRef);
 	return new Promise((reslove) => {
-        const query = uni.createSelectorQuery().in(proxy);
+		const query = uni.createSelectorQuery().in(proxy);
 		if (config.debug) {
 			console.log(`element:${query}`);
 		}

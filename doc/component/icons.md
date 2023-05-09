@@ -110,7 +110,7 @@ import KuiIcons from 'kviewui/src/icons/index.vue';
   ::: danger 警告
   该方案不支持 `app-nvue`，`app-nvue`的支持方案参考 [app-nvue 图标引入](/component/icons#app-nvue-图标引入)
   :::
-  ```js
+  ```ts
   import './assets/font/iconfont.css';
   ```
   - ##### app-nvue 图标引入

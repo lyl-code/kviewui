@@ -125,7 +125,7 @@ import KuiCollapseItem from 'kviewui/src/collapse-item/index.vue';
 | 运行平台 | 是否兼容
 | --- | ---
 | app-vue | ✅
-| app-nvue | ✅
+| app-nvue | ❌
 | H5 | ✅
 | 微信小程序 | ✅
 | 支付宝小程序 | 待测试

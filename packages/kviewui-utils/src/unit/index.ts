@@ -2,7 +2,7 @@
  * @zh 获取单位
  * @param e
  */
-export const getUnitByUnit = (e: any): String => {
+export const getUnitByUnit = (e: any): string => {
 	if  (e.endsWith('rpx')) {
 		return 'rpx';
 	}

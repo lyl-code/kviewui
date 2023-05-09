@@ -25,7 +25,7 @@ declare const createComponent: (name: string) => {
  * @zh 获取单位
  * @param e
  */
-declare const getUnitByUnit: (e: any) => String;
+declare const getUnitByUnit: (e: any) => string;
 /**
  * @zh 获取尺寸单位数字
  * @param e 尺寸单位

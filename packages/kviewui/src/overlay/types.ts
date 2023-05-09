@@ -81,7 +81,7 @@ export const overlayProps = {
      */
     headerHeight: {
         type: Number,
-        default: 0
+        default: 44
     },
     /**
      * 是否锁定背景滚动

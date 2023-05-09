@@ -20,7 +20,12 @@ export type LangEnum = 'en' | 'zn_CN' | 'zn_TW'
 export const buttonProps = {
     ...globalProps,
     /**
-	 * 按钮类型
+	 * 按钮主题类型
+	 * + primary - 主要按钮
+	 * + info - 信息按钮
+	 * + success - 成功按钮
+	 * + warning - 警告按钮
+	 * + danger - 危险按钮
 	 */
 	type: {
 		type: String as PropType<TypeEnum>,

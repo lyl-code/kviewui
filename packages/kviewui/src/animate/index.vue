@@ -1,15 +1,15 @@
 <template>
     <view :id="elId" :style="{
-        ...animateStyle,
-        ...customStyle
-    }" ref="animateRef" :class="[animateClasses, animateLoopClass, customClass]">
+            ...animateStyle,
+            ...customStyle
+        }" ref="animateRef" :class="[animateClasses, animateLoopClass, customClass]">
         <slot></slot>
     </view>
 </template>
 
 <script lang="ts">
 
-import { computed, onMounted, ref, toRefs, watch, nextTick, CSSProperties, reactive } from 'vue';
+import { computed, onMounted, ref, toRefs, watch, nextTick, CSSProperties, reactive, WatchStopHandle, onUnmounted } from 'vue';
 import { createComponent, getElId } from '@kviewui/utils';
 import { animateProps } from './types';
 
@@ -35,6 +35,8 @@ export default create({
         const elId = ref(getElId());
 
         const { name } = toRefs(props);
+
+        let stopWatch: WatchStopHandle;
 
         const animateClass = (name: KuiNamespace.AnimateTypeEnum) => {
             let str = '';
@@ -84,7 +86,7 @@ export default create({
                     duration = 50;
                     break;
                 case 'fade-in':
-                    duration = 300;
+                    duration = 3000;
                     break;
                 case 'fade-out':
                     duration = 300;
@@ -140,21 +142,27 @@ export default create({
             useAnimate(props.name);
         })
 
+        stopWatch = watch(
+            () => props.name,
+            (newVal) => {
+                console.log(`新的值：${newVal}`);
+                useAnimate(newVal);
+                nextTick(() => {
+                    // useFadeIn((animateRef.value as any).ref, props.loop);
+                    // useAnimate(newVal);
+                })
+            }
+        );
+
         onMounted(() => {
             // useAnimate(props.name);
 
-            watch(
-                () => props.name,
-                (newVal) => {
-                    console.log(`新的值：${newVal}`);
-                    useAnimate(newVal);
-                    nextTick(() => {
-                        // useFadeIn((animateRef.value as any).ref, props.loop);
-                        // useAnimate(newVal);
-                    })
-                }
-            );
+
         })
+
+        onUnmounted(() => {
+            stopWatch();
+        });
 
         return { animateRef, animateClass, animateLoopClass, animateClasses, elId, animateStyle };
     }
