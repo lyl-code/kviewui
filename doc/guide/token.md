@@ -1,6 +1,6 @@
 ---
 title: 设计变量
-# aside: false
+aside: false
 ---
 
 #### <span class="text-lg text-gray-500 font-normal">指南</span>

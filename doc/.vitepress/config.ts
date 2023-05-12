@@ -48,7 +48,13 @@ export default defineConfig({
             pattern: 'https://gitcode.net/kviewui/kviewui/edit/master/docs/:path',
             text: '为此页提供修改建议'
         },
-        algolia,
+        // algolia,
+        search: {
+            provider: 'local',
+            options: {
+                ...algolia
+            }
+        },
         socialLinks,
         sidebar: sidebars,
     }

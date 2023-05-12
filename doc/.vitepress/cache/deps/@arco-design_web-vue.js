@@ -122,9 +122,9 @@ var require_dayjs_min = __commonJS({
           this.$d = function(t4) {
             var e3 = t4.date, n3 = t4.utc;
             if (null === e3)
-              return new Date(NaN);
+              return /* @__PURE__ */ new Date(NaN);
             if (O.u(e3))
-              return new Date();
+              return /* @__PURE__ */ new Date();
             if (e3 instanceof Date)
               return new Date(e3);
             if ("string" == typeof e3 && !/Z$/i.test(e3)) {
@@ -381,14 +381,14 @@ var require_customParseFormat = __commonJS({
               try {
                 if (["x", "X"].indexOf(t5) > -1)
                   return new Date(("X" === t5 ? 1e3 : 1) * e5);
-                var r5 = c(t5)(e5), i4 = r5.year, o2 = r5.month, s3 = r5.day, a3 = r5.hours, f3 = r5.minutes, h4 = r5.seconds, u3 = r5.milliseconds, d3 = r5.zone, l2 = new Date(), m2 = s3 || (i4 || o2 ? 1 : l2.getDate()), M2 = i4 || l2.getFullYear(), Y = 0;
+                var r5 = c(t5)(e5), i4 = r5.year, o2 = r5.month, s3 = r5.day, a3 = r5.hours, f3 = r5.minutes, h4 = r5.seconds, u3 = r5.milliseconds, d3 = r5.zone, l2 = /* @__PURE__ */ new Date(), m2 = s3 || (i4 || o2 ? 1 : l2.getDate()), M2 = i4 || l2.getFullYear(), Y = 0;
                 i4 && !o2 || (Y = o2 > 0 ? o2 - 1 : l2.getMonth());
                 var p = a3 || 0, v = f3 || 0, D = h4 || 0, g = u3 || 0;
                 return d3 ? new Date(Date.UTC(M2, Y, m2, p, v, D, g + 60 * d3.offset * 1e3)) : n4 ? new Date(Date.UTC(M2, Y, m2, p, v, D, g)) : new Date(M2, Y, m2, p, v, D, g);
               } catch (e6) {
-                return new Date("");
+                return /* @__PURE__ */ new Date("");
               }
-            }(t4, a2, r4), this.init(), d2 && true !== d2 && (this.$L = this.locale(d2).$L), u2 && t4 != this.format(a2) && (this.$d = new Date("")), o = {};
+            }(t4, a2, r4), this.init(), d2 && true !== d2 && (this.$L = this.locale(d2).$L), u2 && t4 != this.format(a2) && (this.$d = /* @__PURE__ */ new Date("")), o = {};
           } else if (a2 instanceof Array)
             for (var l = a2.length, m = 1; m <= l; m += 1) {
               s2[1] = a2[m - 1];
@@ -397,7 +397,7 @@ var require_customParseFormat = __commonJS({
                 this.$d = M.$d, this.$L = M.$L, this.init();
                 break;
               }
-              m === l && (this.$d = new Date(""));
+              m === l && (this.$d = /* @__PURE__ */ new Date(""));
             }
           else
             i3.call(this, e4);
@@ -15546,7 +15546,7 @@ var _sfc_main62 = defineComponent({
       columns,
       onSelect,
       onSelectNow() {
-        const newValue = dayjs(new Date());
+        const newValue = dayjs(/* @__PURE__ */ new Date());
         emitSelect(newValue);
       },
       onConfirm() {
