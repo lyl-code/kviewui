@@ -1,5 +1,9 @@
 <template>
-  <kui-grid @change="onChangeGrid" clickable icon-color="danger" :columns="3">
+  <kui-grid 
+    @change="onChangeGrid" 
+    clickable 
+    icon-color="danger" 
+    :columns="3">
     <template v-for="i in 9" :key="i">
       <kui-grid-item custom-class="kui-flex-1 kui-items-center kui-justify-center" square>
         <kui-text custom-class="kui-italic kui-font-black" :value="i + ''" :size="40" />

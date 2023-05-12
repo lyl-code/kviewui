@@ -27,6 +27,37 @@ import Progress from './src/progress/index.vue';
 import Spin from './src/spin/index.vue';
 import Skeleton from './src/skeleton/index.vue';
 import Overlay from './src/overlay/index.vue';
+import Popup from './src/popup/index.vue';
+import { 
+    getElId,
+    useKviewuiRect,
+    getImageInfo,
+    fileToUrl,
+    compress,
+    isImage,
+    isNumber,
+    isString,
+    isObject,
+    isBoolean,
+    isArray,
+    showToast,
+    showLoading,
+    showModal,
+    hideToast,
+    hideLoading,
+    getFontSize,
+    getUnitSize,
+    setCliboardData,
+    themeColors,
+    isThemeColor,
+    getUnitByUnit,
+    getNumberByUnit
+ } from '@kviewui/utils';
+ import { 
+    useThrottle,
+    useDebounce,
+    useTaskReduce
+  } from '@kviewui/use';
 
 
 import { theme } from "@kviewui/theme";
@@ -37,7 +68,8 @@ function install(app) {
         Button, Page, Image, Text, Container, Switch, CellGroup, 
         Cell, Icons, Space, ConfigProvider, Animate, Tag, Badge,
         Row, Col, Grid, GridItem, View, Divider, Sticky, Collapse,
-        CollapseItem, Section, Progress, Spin, Skeleton, Overlay
+        CollapseItem, Section, Progress, Spin, Skeleton, Overlay,
+        Popup
     ];
 
     packages.forEach((item) => {
@@ -56,6 +88,58 @@ uni['$kView'] = {
     theme: theme,
     app
 }
+
+uni.kui = {
+    install,
+    theme,
+    app,
+    utils: {
+        element: {
+            getElId,
+            useKviewuiRect
+        },
+        image: {
+            getImageInfo,
+            fileToUrl,
+            compress,
+            isImage
+        },
+        is: {
+            isNumber,
+            isArray,
+            isBoolean,
+            isObject,
+            isString
+        },
+        prompt: {
+            showToast,
+            hideToast,
+            showLoading,
+            hideLoading,
+            showModal
+        },
+        size: {
+            getFontSize,
+            getUnitSize
+        },
+        system: {
+            setCliboardData
+        },
+        theme: {
+            themeColors,
+            isThemeColor
+        },
+        use: {
+            useThrottle,
+            useDebounce,
+            useTaskReduce
+        },
+        unit: {
+            getUnitByUnit,
+            getNumberByUnit
+        }
+    }
+};
 
 const version = '1.0.0';
 
@@ -89,6 +173,7 @@ export {
     Spin as KuiSpin,
     Skeleton as KuiSkeleton,
     Overlay as KuiOverlay,
+    Popup as KuiPopup,
     theme,
     app,
     version

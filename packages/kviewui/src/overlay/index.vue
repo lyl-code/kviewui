@@ -1,53 +1,28 @@
 <template>
-    <kui-animate 
-        v-if="data.show" 
-        :name="(duration === 0 ? 'none' : animateName as KuiNamespace.AnimateTypeEnum)"
+    <kui-animate v-if="data.show" :name="(duration === 0 ? 'none' : animateName as KuiNamespace.AnimateTypeEnum)"
         :duration="duration">
         <view ref="overlayRef" class="kui-relative" :class="[data.classes, customClass]" :style="{
-            ...customStyle
-        }" @tap="onClose">
+                ...customStyle
+            }" @tap="onClose">
             <slot></slot>
             <view class="kui-flex-1" :class="[blur ? 'blur' : '']" :style="{
-                position: isWrapper ? 'absolute' : 'fixed',
-                left: 0,
-                right: 0,
-                top: data.top,
-                bottom: 0,
-                height: data.height,
-                backgroundColor: `rgba(0, 0, 0, ${opacity})`,
-                borderRadius: `${data.radiusSize}rpx`,
-                zIndex: zIndex,
-            }" @touchmove.prevent @wheel="onWheel" @touchmove="onMove" @tap="onClose">
+                    position: isWrapper ? 'absolute' : 'fixed',
+                    left: 0,
+                    right: 0,
+                    top: data.top,
+                    bottom: 0,
+                    height: data.height,
+                    backgroundColor: `rgba(0, 0, 0, ${opacity})`,
+                    borderRadius: `${data.radiusSize}rpx`,
+                    zIndex: zIndex,
+                }" @touchmove.prevent @wheel="onWheel" @touchmove="onMove" @tap="onClose">
                 <view class="kui-flex kui-flex-1" :class="vnodeCenter ? 'kui-justify-center kui-items-center' : ''" :style="{
-                }">
+                    }">
                     <slot name="vnode"></slot>
                 </view>
             </view>
         </view>
     </kui-animate>
-    <!-- <view ref="overlayRef">
-        <view class="kui-relative" :class="[data.classes, customClass]" :style="{
-            ...customStyle
-        }" v-if="visible" @tap="onClose">
-            <slot></slot>
-            <view class="kui-flex-1" :class="[blur ? 'blur' : '']" :style="{
-                position: isWrapper ? 'absolute' : 'fixed',
-                left: 0,
-                right: 0,
-                top: data.top,
-                bottom: 0,
-                height: data.height,
-                backgroundColor: `rgba(0, 0, 0, ${opacity})`,
-                borderRadius: `${data.radiusSize}rpx`,
-                zIndex: zIndex,
-            }" @touchmove.prevent @wheel="onWheel" @touchmove="onMove" @tap="onClose">
-                <view class="kui-flex kui-flex-1" :class="vnodeCenter ? 'kui-justify-center kui-items-center' : ''" :style="{
-                }">
-                    <slot name="vnode"></slot>
-                </view>
-            </view>
-        </view>
-    </view> -->
 </template>
 
 <script lang="ts">
@@ -76,7 +51,9 @@ import {
     nextTick,
     onMounted,
     useSlots,
-    computed
+    computed,
+    WatchStopHandle,
+    onUnmounted
 } from "vue";
 
 import { overlayProps } from './types';
@@ -90,12 +67,14 @@ import { AnimateTypeEnum } from '../shared/types';
 import { createComponent, getElId } from '@kviewui/utils';
 const { create } = createComponent('overlay');
 
+let stopWatch: WatchStopHandle;
+
 export default create({
     props: overlayProps,
     components: {
         KuiAnimate
     },
-    emits: ['click', 'update:visible'],
+    emits: ['click', 'update:visible', 'closed'],
     setup(props, { emit }) {
         const theme: KuiNamespace.Theme = appTheme;
         // const slots = proxy.$slots;
@@ -139,45 +118,23 @@ export default create({
             // animateName.value = 'none';
 
             animateName.value = 'fade-in';
-
-            // #ifdef APP-NVUE
-            const animation = uni.requireNativePlugin('animation');
-
-            nextTick(() => {
-                // useFadeIn((overlayRef.value as any).ref, false);
-                animation.transition((overlayRef.value as any).ref, {
-                    styles: {
-                        opacity: props.visible ? 1 : 0
-                    },
-                    duration: 300,
-                    timingFunction: props.visible ? 'ease-in' : 'ease-out',
-                    delay: 0
-                }, () => {
-
-                })
-            })
-            // #endif
         }
 
         const close = () => {
-            // data.classes = 'fade-out';
-            // animateName.value = 'none';
             animateName.value = 'fade-out';
-            // setTimeout(() => {
-            // 	data.show = false;
-            // }, 120);
+            setTimeout(() => {
+                emit('update:visible', false);
+                data.show = false;
+                // animateName.value = 'fade-in';
+                emit('closed');
+            }, 0);
         }
 
         const onClose = (e: TouchEvent) => {
+            emit('click', e);
             if (data.isMaskClick) {
                 close();
-                setTimeout(() => {
-                    // data.show = false;
-                    emit('update:visible', false);
-                }, props.duration);
             }
-
-            emit('click', e);
         }
 
         const changeMaskClick = (v: boolean) => {
@@ -198,24 +155,22 @@ export default create({
             return true;
         }
 
-        // context.expose({
-        // 	open,
-        // 	close,
-        // 	changeMaskClick
-        // });
-
-        onMounted(() => {
-            watch(
-                () => props.visible,
-                (newVal) => {
+        stopWatch = watch(
+            () => props.visible,
+            (newVal) => {
+                console.log(newVal);
+                if (!newVal) {
+                    close();
+                } else {
                     data.show = newVal;
-
-                    if (newVal) {
-                        open();
-                    }
+                    open();
                 }
-            );
-        })
+            }
+        );
+
+        onUnmounted(() => {
+            stopWatch();
+        });
 
         return {
             theme,
